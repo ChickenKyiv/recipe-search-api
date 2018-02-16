@@ -1,6 +1,6 @@
 {
   "recipeDS": {
-    "name": "recipeDS",
+    "name": "searchDS",
     "localStorage": "",
     "file": "db.json",
     "connector": "memory"

@@ -14,27 +14,31 @@
     ]
   },
   "departments": {
-    "dataSource": "recipeDS",
+    "dataSource": "searchDS",
     "public": true
   },
   "groceries": {
-    "dataSource": "recipeDS",
+    "dataSource": "searchDS",
     "public": true
   },
   "ingredients": {
-    "dataSource": "recipeDS",
+    "dataSource": "searchDS",
     "public": true
   },
   "menus": {
-    "dataSource": "recipeDS",
+    "dataSource": "searchDS",
     "public": true
   },
   "recipes": {
-    "dataSource": "recipeDS",
+    "dataSource": "searchDS",
     "public": true
   },
   "weekly-menu": {
-    "dataSource": "recipeDS",
+    "dataSource": "searchDS",
+    "public": true
+  },
+  "attributes": {
+    "dataSource": "searchDS",
     "public": true
   }
 }
