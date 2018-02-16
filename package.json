@@ -19,7 +19,7 @@
     "loopback": "^3.0.0"
   },
   "devDependencies": {
-    "eslint": "^2.13.1",
+    "eslint": "^4.17.0",
     "eslint-config-loopback": "^10.0.0",
     "nodemon": "^1.11.0",
     "nsp": "^3.2.1"
