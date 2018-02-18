@@ -1,42 +1,10 @@
-const get = (department_id) => {
-    let data
+let table_name = 'Attribute'
 
-    data[0] = [
-
-    ];
-
-    data[1] = [
-
-    ];
-
-    data[2] = [
-
-    ];
-
-    data[3] = [
-    
-    ];
-
-    data[4] = [
-			{
-	  		name: "black pepper",
-        departmentId: department_id
-	  	},
-	  	{
-	      name: "extra-virgin olive oil",
-	      departmentId: department_id
-	    },
-	    {
-        name: "kosher salt",
-	      departmentId: department_id
-	  	},
-	  	{
-        name: "kosher salt and freshly ground black",
-	      departmentId: department_id
-	  	}
-
-     ];
+const get = (data) => {
 
   	return data;
-
 };
+
+
+module.exports.get   = get;
+module.exports.table_name   = table_name;

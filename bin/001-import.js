@@ -23,7 +23,7 @@ let Course     = require(path.resolve(__dirname, 'courses'));
 let Cuisine    = require(path.resolve(__dirname, 'cuisines'));
 let Diet       = require(path.resolve(__dirname, 'diets'));
 let Holiday    = require(path.resolve(__dirname, 'holidays'));
-let Nutritions = require(path.resolve(__dirname, 'nutritions'));
+// let Nutritions = require(path.resolve(__dirname, 'nutritions'));
 // console.log(Holiday);
 
 // @TODO remove this include and just find all recipes, stored at database.
@@ -41,21 +41,16 @@ let options = {
 		Cuisine.get(),
 		Diet.get(),
 		Holiday.get(),
-		Nutritions.get()
+		// Nutritions.get()
 	)
 }
 
-
+//@TODO think about separating predata and options array
 async.parallel({
 
 		recipes    : async.apply(helper.create, options, Recipe),
-    // attributes : async.apply(helper.create, options, Attribute),
-		// allergies  : async.apply(helper.create, options, Allergy),
-		// courses    : async.apply(helper.create, options, Course),
-		// cuisines   : async.apply(helper.create, options, Cuisine),
-    // diets      : async.apply(helper.create, options, Diet),
-    // holidays   : async.apply(helper.create, options, Holiday),
-    // nutritions : async.apply(helper.create, options, Nutritions),
+    attributes : async.apply(helper.create, options, Attribute),
+
 
 	}, function(err, results){
 		if( err ) {
@@ -64,10 +59,11 @@ async.parallel({
 
 		}
 
-		if( !results || !results.allergies || !results.courses
-				|| !results.cuisines || !results.diets
-				|| !results.holidays || !results.nutritions
-				|| !results.recipes
+		if( !results
+			// || !results.allergies || !results.courses
+			// 	|| !results.cuisines || !results.diets
+			// 	|| !results.holidays || !results.nutritions
+			// 	|| !results.recipes
 			 ) {
 					raven.captureException("not imported well");
 		}
@@ -75,7 +71,7 @@ async.parallel({
 
 		// @TODO make this call less shitty
 		// console.log('123');
-		// Recipe.relate( options, results, helper );
+		Recipe.relate( options, results, helper );
 
 
 		// console.log(err);

@@ -42,6 +42,15 @@
   },
   "validations": [],
   "relations": {
+    "attributesList": {
+      "type": "referencesMany",
+      "model": "Attribute",
+      "foreignKey": "attributes",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
     "allergiesList": {
       "type": "referencesMany",
       "model": "Allergy",
