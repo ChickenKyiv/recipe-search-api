@@ -31,6 +31,9 @@ let Recipe    = require(path.resolve(__dirname, 'recipes'));
 let Ingredient= require(path.resolve(__dirname, 'ingredients'));
 // console.log(  )
 
+
+let Departments  = require(path.resolve(__dirname, 'departments'));
+
 let options = {
 	server: server,
 	database: database,
@@ -50,7 +53,7 @@ async.parallel({
 
 		recipes    : async.apply(helper.create, options, Recipe),
     attributes : async.apply(helper.create, options, Attribute),
-
+departments : async.apply(helper.create, options, Departments),
 
 	}, function(err, results){
 		if( err ) {
@@ -71,9 +74,6 @@ async.parallel({
 
 		// @TODO make this call less shitty
 		// console.log('123');
-
-
-let Departments  = require(path.resolve(__dirname, 'departments'));
 
 		// Recipe.relate( options, results, helper );
 
