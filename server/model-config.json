@@ -13,31 +13,31 @@
       "./mixins"
     ]
   },
-  "departments": {
+  "Department": {
     "dataSource": "searchDS",
     "public": true
   },
-  "groceries": {
+  "Ingredient": {
     "dataSource": "searchDS",
     "public": true
   },
-  "ingredients": {
+  "Menu": {
     "dataSource": "searchDS",
     "public": true
   },
-  "menus": {
+  "Recipe": {
     "dataSource": "searchDS",
     "public": true
   },
-  "recipes": {
+  "User": {
     "dataSource": "searchDS",
-    "public": true
+    "public": false
   },
-  "weekly-menu": {
+  "ACL": {
     "dataSource": "searchDS",
-    "public": true
+    "public": false
   },
-  "attributes": {
+  "Attribute": {
     "dataSource": "searchDS",
     "public": true
   }

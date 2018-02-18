@@ -7,7 +7,9 @@
     "start": "node .",
     "posttest": "npm run lint && nsp check",
     "watch": "nodemon server/server.js",
-    "migrate-recipes": "node bin/recipes/automigrate.js",
+
+    "migrate": "node bin/002-automigrate.js",
+    
     "import": "node bin/recipes/import.js",
     "grocery": "node bin/grocery/import.js",
     "search": "node bin/search/import.js",
