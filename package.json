@@ -1,6 +1,9 @@
 {
   "name": "recipe-api-search-only",
   "version": "1.0.0",
+  "engines": {
+    "node": "9.4.0"
+  },
   "main": "server/server.js",
   "scripts": {
     "lint": "eslint .",
@@ -9,7 +12,7 @@
     "watch": "nodemon server/server.js",
 
     "migrate": "node bin/002-automigrate.js",
-    
+
     "import": "node bin/recipes/import.js",
     "grocery": "node bin/grocery/import.js",
     "search": "node bin/search/import.js",
