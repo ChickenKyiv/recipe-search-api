@@ -13,10 +13,9 @@
 
     "migrate": "node bin/002-automigrate.js",
 
-    "import": "node bin/recipes/import.js",
-    "grocery": "node bin/grocery/import.js",
-    "search": "node bin/search/import.js",
-    "g": "npm run migrate-grocery && nodemon bin/grocery/import.js"
+    "import": "node bin/001-import.js",
+
+    "s": "npm run migrate && nodemon bin/001-import.js"
   },
   "dependencies": {
     "compression": "^1.0.3",

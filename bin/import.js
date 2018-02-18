@@ -2,60 +2,48 @@
 
 const path    = require('path');
 const async   = require('async');
-// const debug   = require('debug');
+const debug   = require('debug');
 const raven   = require('raven');
-const _       = require('underscore');
 
 raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
 
-let server     = require(path.resolve(__dirname, '../server/server'));
-// @TODO update this, cause each time i need to pass a different sources.
-let database   = server.datasources.searchDS;
+let server     = require(path.resolve(__dirname, '../../server/server'));
+let database   = server.datasources.recipeDS;
 
-let helper     = require(path.resolve(__dirname, '003-helper'));
+let helper     = require(path.resolve(__dirname, '../helper'));
 
 // include middleware
 // @todo make it auto-icludable from folder
-let Attribute = require(path.resolve(__dirname, 'attributes'));
-
 let Allergy    = require(path.resolve(__dirname, 'allergy'));
 let Course     = require(path.resolve(__dirname, 'courses'));
 let Cuisine    = require(path.resolve(__dirname, 'cuisines'));
 let Diet       = require(path.resolve(__dirname, 'diets'));
 let Holiday    = require(path.resolve(__dirname, 'holidays'));
 let Nutritions = require(path.resolve(__dirname, 'nutritions'));
-// console.log(Holiday);
 
-// @TODO remove this include and just find all recipes, stored at database.
-let Recipe    = require(path.resolve(__dirname, 'recipes'));
+// we including a file from other import directory.
+// @TODO this is not cool. maybe it's better to have a short version of recipe file just for attaching things.
+// remove this include and just find all recipes, stored at database.
+let Recipe    = require(path.resolve(__dirname, '../recipes/recipes'));
+// let Recipes    = require(path.resolve(__dirname, '../recipes/recipes'));
 
-// console.log(  )
 
 let options = {
 	server: server,
 	database: database,
-	raven: raven,
-  predata: _.union(
-		Allergy.get(),
-		Course.get(),
-		Cuisine.get(),
-		Diet.get(),
-		Holiday.get(),
-		Nutritions.get()
-	)
+	raven: raven
 }
-
 
 async.parallel({
 
 		recipes    : async.apply(helper.create, options, Recipe),
-    // attributes : async.apply(helper.create, options, Attribute),
-		// allergies  : async.apply(helper.create, options, Allergy),
-		// courses    : async.apply(helper.create, options, Course),
-		// cuisines   : async.apply(helper.create, options, Cuisine),
-    // diets      : async.apply(helper.create, options, Diet),
-    // holidays   : async.apply(helper.create, options, Holiday),
-    // nutritions : async.apply(helper.create, options, Nutritions),
+
+		allergies  : async.apply(helper.create, options, Allergy),
+		courses    : async.apply(helper.create, options, Course),
+		cuisines   : async.apply(helper.create, options, Cuisine),
+    diets      : async.apply(helper.create, options, Diet),
+    holidays   : async.apply(helper.create, options, Holiday),
+    nutritions : async.apply(helper.create, options, Nutritions),
 
 	}, function(err, results){
 		if( err ) {
@@ -75,7 +63,7 @@ async.parallel({
 
 		// @TODO make this call less shitty
 		// console.log('123');
-		// Recipe.relate( options, results, helper );
+		Recipe.relate( options, results, helper );
 
 
 		// console.log(err);

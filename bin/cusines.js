@@ -1,1 +1,0 @@
-let pattern = "cu1";
