@@ -21,10 +21,6 @@
     "dataSource": "searchDS",
     "public": true
   },
-  "Menu": {
-    "dataSource": "searchDS",
-    "public": true
-  },
   "Recipe": {
     "dataSource": "searchDS",
     "public": true

@@ -28,7 +28,7 @@ let Holiday    = require(path.resolve(__dirname, 'holidays'));
 
 // @TODO remove this include and just find all recipes, stored at database.
 let Recipe    = require(path.resolve(__dirname, 'recipes'));
-
+let Ingredient= require(path.resolve(__dirname, 'ingredients'));
 // console.log(  )
 
 let options = {
@@ -71,7 +71,11 @@ async.parallel({
 
 		// @TODO make this call less shitty
 		// console.log('123');
-		Recipe.relate( options, results, helper );
+
+
+let Departments  = require(path.resolve(__dirname, 'departments'));
+
+		// Recipe.relate( options, results, helper );
 
 
 		// console.log(err);
