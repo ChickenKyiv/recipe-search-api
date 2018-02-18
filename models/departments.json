@@ -1,5 +1,5 @@
 {
-  "name": "departments",
+  "name": "Department",
   "plural": "department",
   "base": "PersistedModel",
   "idInjection": true,
@@ -11,9 +11,9 @@
       "type": "string",
       "required": true
     },
-    "items": {
-      "type": "object",
-      "required": true
+    "desc": {
+      "type": "string",
+      "required": false
     },
     "created_at": {
       "type": "date",
@@ -25,7 +25,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "ingredients": {
+      "type": "hasMany",
+      "model": "Ingredient",
+      "foreignKey": "departmentId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

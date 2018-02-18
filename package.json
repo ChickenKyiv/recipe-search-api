@@ -1,22 +1,30 @@
 {
-  "name": "recipe-api",
+  "name": "recipe-api-search-only",
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
     "lint": "eslint .",
     "start": "node .",
     "posttest": "npm run lint && nsp check",
-    "watch": "nodemon server/server.js"
+    "watch": "nodemon server/server.js",
+    "migrate-recipes": "node bin/recipes/automigrate.js",
+    "import": "node bin/recipes/import.js",
+    "grocery": "node bin/grocery/import.js",
+    "search": "node bin/search/import.js",
+    "g": "npm run migrate-grocery && nodemon bin/grocery/import.js"
   },
   "dependencies": {
     "compression": "^1.0.3",
     "cors": "^2.5.2",
-    "helmet": "^3.11.0",
+    "jest": "^22.3.0",
+    "loopback": "^3.0.0",
     "loopback-boot": "^2.6.5",
+    "loopback-component-explorer": "^5.2.0",
+    "loopback-connector-mongodb": "^3.4.1",
+    "raven": "^2.4.1",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^2.3.1",
-    "loopback-component-explorer": "^5.2.0",
-    "loopback": "^3.0.0"
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "eslint": "^4.17.0",

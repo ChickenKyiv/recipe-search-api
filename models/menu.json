@@ -1,5 +1,5 @@
 {
-  "name": "menus",
+  "name": "Menu",
   "plural": "menu",
   "base": "PersistedModel",
   "idInjection": true,
@@ -15,12 +15,8 @@
       "type": "date",
       "required": true
     },
-    "desc": {
+    "description": {
       "type": "string",
-      "required": true
-    },
-    "recipes": {
-      "type": "object",
       "required": true
     },
     "created_at": {
@@ -30,10 +26,17 @@
     "updated_at": {
       "type": "date",
       "required": true
+    },
+    "notes": {
+      "type": "string",
+      "required": false
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+
+
+  },
   "acls": [],
   "methods": {}
 }

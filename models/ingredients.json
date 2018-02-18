@@ -1,5 +1,5 @@
 {
-  "name": "ingredients",
+  "name": "Ingredient",
   "plural": "ingredient",
   "base": "PersistedModel",
   "idInjection": true,
@@ -11,31 +11,24 @@
       "type": "string",
       "required": true
     },
-    "recipe_id": {
-      "type": "object",
-      "required": true
-    },
-    "type": {
+    "description": {
       "type": "string",
-      "required": true
+      "required": false
     },
-    "done": {
-      "type": "boolean"
-    },
-    "delete": {
-      "type": "boolean"
-    },
-    "created_at": {
-      "type": "date",
-      "required": true
-    },
-    "updated_at": {
-      "type": "date",
-      "required": true
+    "custom": {
+      "type": "boolean",
+      "required": false,
+      "default": false
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "department": {
+      "type": "belongsTo",
+      "model": "Department",
+      "foreignKey": "departmentId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

@@ -1,8 +1,7 @@
 {
   "recipeDS": {
+    "url": "mongodb://heroku_ghbnqks1:eb8kogbcofqvkh13d6ccep825l@ds139994.mlab.com:39994/heroku_ghbnqks1",
     "name": "searchDS",
-    "localStorage": "",
-    "file": "db.json",
-    "connector": "memory"
+    "connector": "loopback-connector-mongodb"
   }
 }
