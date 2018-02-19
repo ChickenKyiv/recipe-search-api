@@ -167,6 +167,8 @@ const relate2 = async (options, results, helper) => {
   //@TODO change that. so bad and stupid. but fast
   helper.attach( results[0], [ recipes[0] ], attributes[1] );
   helper.attach( results[1], [ recipes[1] ], attributes[1] );
+  helper.attach( results[2], [ recipes[2] ], attributes[1] );
+  helper.attach( results[3], [ recipes[3] ], attributes[1] );
 
 
   // @TODO work not very best, because when we creating models,
@@ -184,30 +186,30 @@ const relate = async (options, results, helper) => {
   // this is a hardcode. @TODO handle this later.
   // I don't like that we're searching all recipes at this method
 
-  // //@TODO apply this changes to all import model files
-  // let server
-  // let database
-  // let raven
-  // ( {server, database, raven} = options );
-  //
-  //
-  // let recipes
-  // try {
-  //
-  //   let Recipe = server.models[table_name];
-  //   recipes    = await Recipe.find({});
-  //
-  //
-  // } catch (e) {
-  //   raven.captureException(e);
-  //   //this will eventually be handled by your error handling middleware
-  //   next(e)
-  // }
-  // // end of what i don't like
+  //@TODO apply this changes to all import model files
+  let server
+  let database
+  let raven
+  ( {server, database, raven} = options );
 
-  var cc = helper.get_data(options, table_name);
 
-  console.log(cc);
+  let recipes
+  try {
+
+    let Recipe = server.models[table_name];
+    recipes    = await Recipe.find({});
+
+
+  } catch (e) {
+    raven.captureException(e);
+    //this will eventually be handled by your error handling middleware
+    next(e)
+  }
+  // end of what i don't like
+
+  // var cc = helper.get_data(options, table_name);
+
+  // console.log(cc);
 
   if( !results
     // || !results.allergies
@@ -224,9 +226,6 @@ const relate = async (options, results, helper) => {
   // @TODO work not very best, because when we creating models,
   // that cannot be async apply - we must to add that array into results array/object
   // helper.attach( results.ingredients,    recipes, attributes[1]);
-
-
-
 
 };
 

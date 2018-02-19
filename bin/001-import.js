@@ -76,27 +76,22 @@ async.parallel({
 		// console.log('123');
 		// console.log(results.departments[0].id.toString())
 				// options.predata =
-				let idi = results.departments[0].id.toString();
-				// // console.log('qwe')
-				// helper.create(options, Ingredient, (err, data) => {
-				// 	// console.log(data);
-				// });
+		let idi = results.departments[0].id.toString();
+		let ingredeieienetsData = Ingredient.get(idi);
 
-				let ingredeieienetsData = Ingredient.get(idi);
-				// console.log(ingredeieienetsData)
-				// let ing
 
-				helper.create_with_relations(options, ingredeieienetsData, Ingredient, ( err, data )=>{
-					// console.log(data)//
-					Recipe.relate2( options, data, helper );
+		helper.create_with_relations(options, ingredeieienetsData, Ingredient, ( err, data ) => {
+			// console.log(data)//
+			Recipe.relate2( options, data, helper );
 
-				});
+		});
 
 				// ing[1] = await helper.create(options, ingredeieienetsData[1]);
 				// ing[2] = await helper.create(options, ingredeieienetsData[2]);
 				// ing[3] = await helper.create(options, ingredeieienetsData[3]);
 				// console.log(ing);
-		// Recipe.relate( options, results, helper );
+																																																																																																															
+		Recipe.relate( options, results, helper );
 
 
 		// console.log(err);
