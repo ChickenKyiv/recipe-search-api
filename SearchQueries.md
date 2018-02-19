@@ -343,8 +343,9 @@ We have x nutritions
 We have x ingredients attached to recipes
 We have x ingredients attached to departments and grocery
 
-How to test
-Simple queries
+## How to test
+
+###### Simple queries
 ingredients by name
 this ingredients was not attached to recipes. But still have data stored.
 ```
@@ -397,11 +398,3 @@ Perfect Apple Pie
 Crock Pot Roast
 ```
 
-ingredients by id
-ingredients by id included & excluded
-
-attributes by id
-attributes by id included & excluded
-
-
-Complex queries
