@@ -83,10 +83,12 @@ async.parallel({
 				// });
 
 				let ingredeieienetsData = Ingredient.get(idi);
+				// console.log(ingredeieienetsData)
 				// let ing
-				helper.create(options, ingredeieienetsData[0], ( err, data )=>{
+				helper.create_with_relations(options, ingredeieienetsData[0], Ingredient, ( err, data )=>{
 					console.log(data)
 				});
+
 				// ing[1] = await helper.create(options, ingredeieienetsData[1]);
 				// ing[2] = await helper.create(options, ingredeieienetsData[2]);
 				// ing[3] = await helper.create(options, ingredeieienetsData[3]);

@@ -47,7 +47,7 @@ const vaza = () => {
 // };
 
 //@TODO it's a stupid duplicate. as usually - want to speed up development
-const create_with_relations = (options, wrapper, cb) => {
+const create_with_relations = (options, datazzzz, wrapper, cb) => {
 
   if( !options ){ raven.captureException('Options was not specified');  }
   if ( !cb ) {    raven.captureException('Callback was not specified'); }
@@ -63,7 +63,7 @@ const create_with_relations = (options, wrapper, cb) => {
   let table_name = wrapper.table_name;
 
 
-  let data       = wrapper.get(predata) ;
+  let data       = datazzzz ;
 
   database.autoupdate(table_name, function(err){
     if (err) {
@@ -83,7 +83,7 @@ const create_with_relations = (options, wrapper, cb) => {
 
 };
 
-const create = async (options, wrapper, cb) => {
+const create = (options, wrapper, cb) => {
 
   if( !options ){ raven.captureException('Options was not specified');  }
   if ( !cb ) {    raven.captureException('Callback was not specified'); }
@@ -173,5 +173,6 @@ module.exports = {
   get_id_array : get_id_array,
   create   : create,
   attach   : attach,
-  get_data : get_imported_data_for_relate_function
+  get_data : get_imported_data_for_relate_function,
+  create_with_relations:create_with_relations
 };
