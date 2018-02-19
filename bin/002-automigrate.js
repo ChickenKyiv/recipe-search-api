@@ -10,7 +10,7 @@ var lbTables = [
   'Attribute',
   'Department',
 	'Ingredient',
-	'Menu',
+	
   'Recipe'
 ];
 

@@ -51,9 +51,9 @@ let options = {
 //@TODO think about separating predata and options array
 async.parallel({
 
-		recipes    : async.apply(helper.create, options, Recipe),
-    attributes : async.apply(helper.create, options, Attribute),
-departments : async.apply(helper.create, options, Departments),
+		recipes     : async.apply(helper.create, options, Recipe),
+    attributes  : async.apply(helper.create, options, Attribute),
+		departments : async.apply(helper.create, options, Departments),
 
 	}, function(err, results){
 		if( err ) {
@@ -74,7 +74,23 @@ departments : async.apply(helper.create, options, Departments),
 
 		// @TODO make this call less shitty
 		// console.log('123');
+		// console.log(results.departments[0].id.toString())
+				// options.predata =
+				let idi = results.departments[0].id.toString();
+				// // console.log('qwe')
+				// helper.create(options, Ingredient, (err, data) => {
+				// 	// console.log(data);
+				// });
 
+				let ingredeieienetsData = Ingredient.get(idi);
+				// let ing
+				helper.create(options, ingredeieienetsData[0], ( err, data )=>{
+					console.log(data)
+				});
+				// ing[1] = await helper.create(options, ingredeieienetsData[1]);
+				// ing[2] = await helper.create(options, ingredeieienetsData[2]);
+				// ing[3] = await helper.create(options, ingredeieienetsData[3]);
+				// console.log(ing);
 		// Recipe.relate( options, results, helper );
 
 

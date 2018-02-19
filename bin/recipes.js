@@ -133,46 +133,47 @@ const relate = async (options, results, helper) => {
   // this is a hardcode. @TODO handle this later.
   // I don't like that we're searching all recipes at this method
 
-  //@TODO apply this changes to all import model files
-  let server
-  let database
-  let raven
-  ( {server, database, raven} = options );
+  // //@TODO apply this changes to all import model files
+  // let server
+  // let database
+  // let raven
+  // ( {server, database, raven} = options );
+  //
+  //
+  // let recipes
+  // try {
+  //
+  //   let Recipe = server.models[table_name];
+  //   recipes    = await Recipe.find({});
+  //
+  //
+  // } catch (e) {
+  //   raven.captureException(e);
+  //   //this will eventually be handled by your error handling middleware
+  //   next(e)
+  // }
+  // // end of what i don't like
 
+  var cc = helper.get_data(options, table_name);
 
-  let recipes
-  try {
-
-    let Recipe = server.models[table_name];
-    recipes    = await Recipe.find({});
-
-
-  } catch (e) {
-    raven.captureException(e);
-    //this will eventually be handled by your error handling middleware
-    next(e)
-  }
-  // end of what i don't like
-
+  console.log(cc);
 
   if( !results
     // || !results.allergies
     || !results.recipes
     || !results.attributes
-    //   || !results.courses || !results.cuisines
-    //   || !results.diets || !results.holidays
-    //   || !results.nutritions
+
     ) {
         raven.captureException("cannot attach additional data to recipes");
   }
 
   //@TODO create a method with foreach for each attribute in order to attach data to recipe
   helper.attach( results.attributes,  recipes, attributes[0]);
-  // helper.attach( results.courses,    recipes, attributes[1]);
-  // helper.attach( results.cuisines,   recipes, attributes[2]);
-  // helper.attach( results.diets,      recipes, attributes[3]);
-  // helper.attach( results.holidays,   recipes, attributes[4]);
-  // helper.attach( results.nutritions, recipes, attributes[5]);
+
+  // @TODO work not very best, because when we creating models,
+  // that cannot be async apply - we must to add that array into results array/object
+  // helper.attach( results.ingredients,    recipes, attributes[1]);
+
 
 
 

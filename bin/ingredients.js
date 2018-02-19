@@ -4,8 +4,8 @@ let table_name = 'Ingredient'
 
 // this indredients haven't nice departments, so i attach them only to department[0]
 const get = (department_id) => {
-    let data
-
+    let data = [];
+    // console.log(department_id)
     data[0] = [
       {
         name: "medium russet potatoes, sliced into sticks",
@@ -28,7 +28,8 @@ const get = (department_id) => {
         departmentId: department_id
       }
     ];
-
+    // console.log(data);
+    //
     data[1] = [
       {
         name: "1 box Pillsbury™ refrigerated pie crusts, softened as directed on box",
@@ -59,7 +60,7 @@ const get = (department_id) => {
         departmentId: department_id
       },
       {
-        name: "1 tablespoon lemon juice"
+        name: "1 tablespoon lemon juice",
         departmentId: department_id
       },
     ];
@@ -97,7 +98,7 @@ const get = (department_id) => {
         departmentId : department_id
       },
       {
-        name "dry ranch dressing mix",
+        name: "dry ranch dressing mix",
         departmentId : department_id
       },
       {
@@ -129,7 +130,6 @@ const get = (department_id) => {
   	return data;
 
 };
-
 
 module.exports.get        = get;
 module.exports.table_name = table_name;
