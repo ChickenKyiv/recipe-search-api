@@ -85,8 +85,11 @@ async.parallel({
 				let ingredeieienetsData = Ingredient.get(idi);
 				// console.log(ingredeieienetsData)
 				// let ing
+
 				helper.create_with_relations(options, ingredeieienetsData[0], Ingredient, ( err, data )=>{
-					console.log(data)
+					// console.log(data)//
+					Recipe.relate2( options, data, helper );
+
 				});
 
 				// ing[1] = await helper.create(options, ingredeieienetsData[1]);

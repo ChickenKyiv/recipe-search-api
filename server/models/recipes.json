@@ -49,13 +49,21 @@
       "options": {
         "validate": true,
         "forceId": false
-      }
+      },
+      "ingredientsList": {
+        "type": "referencesMany",
+        "model": "Ingredient",
+        "foreignKey": "ingredients",
+        "options": {
+          "validate": true,
+          "forceId": false
+        }
     }
 
 
   },
   "acls": [
-  
+
   ],
   "methods": {}
 }
