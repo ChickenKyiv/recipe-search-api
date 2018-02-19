@@ -45,19 +45,12 @@
     "attributesList": {
       "type": "referencesMany",
       "model": "Attribute",
-      "foreignKey": "attributes",
-      "options": {
-        "validate": true,
-        "forceId": false
-      },
-      "ingredientsList": {
-        "type": "referencesMany",
-        "model": "Ingredient",
-        "foreignKey": "ingredients",
-        "options": {
-          "validate": true,
-          "forceId": false
-        }
+      "foreignKey": "attributes"
+    },
+    "ingredientsList": {
+      "type": "referencesMany",
+      "model": "Ingredient",
+      "foreignKey": "ingredients"
     }
 
 

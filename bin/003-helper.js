@@ -132,6 +132,8 @@ const attach = ( array_ids, collection, attribute ) => {
 
      // if attribute is string then use it. if attribute is array with count 1 - use it
      // if attribute have more elements - we need to pick stuff. @TODO
+
+     //@TODO check if collection is simple item, not an array
      _.map( collection, item => item.updateAttribute(attribute, arrayWithIds) )
      console.log(collection);
      // debug('attach attached!'); // @TODO

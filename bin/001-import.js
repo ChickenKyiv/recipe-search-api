@@ -86,7 +86,7 @@ async.parallel({
 				// console.log(ingredeieienetsData)
 				// let ing
 
-				helper.create_with_relations(options, ingredeieienetsData[0], Ingredient, ( err, data )=>{
+				helper.create_with_relations(options, ingredeieienetsData, Ingredient, ( err, data )=>{
 					// console.log(data)//
 					Recipe.relate2( options, data, helper );
 

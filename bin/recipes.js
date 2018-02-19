@@ -135,34 +135,39 @@ const relate2 = async (options, results, helper) => {
   // this is a hardcode. @TODO handle this later.
   // I don't like that we're searching all recipes at this method
 
-  // //@TODO apply this changes to all import model files
-  // let server
-  // let database
-  // let raven
-  // ( {server, database, raven} = options );
-  //
-  //
-  // let recipes
-  // try {
-  //
-  //   let Recipe = server.models[table_name];
-  //   recipes    = await Recipe.find({});
-  //
-  //
-  // } catch (e) {
-  //   raven.captureException(e);
-  //   //this will eventually be handled by your error handling middleware
-  //   next(e)
-  // }
-  // // end of what i don't like
+  //@TODO apply this changes to all import model files
+  let server
+  let database
+  let raven
+  ( {server, database, raven} = options );
 
-  var cc = helper.get_data(options, table_name);
 
-  console.log(cc);
+  let recipes
+  try {
+
+    let Recipe = server.models[table_name];
+    recipes    = await Recipe.find({});
+
+
+  } catch (e) {
+    raven.captureException(e);
+    //this will eventually be handled by your error handling middleware
+    next(e)
+  }
+  // end of what i don't like
+
+  // var cc = helper.get_data(options, table_name);
+
+  // console.log(cc);
 // ......
 
   //@TODO create a method with foreach for each attribute in order to attach data to recipe
-  helper.attach( results,  recipes, attributes[1]);
+  // console.log(results);
+  // console.log(recipes);
+  //@TODO change that. so bad and stupid. but fast
+  helper.attach( results[0], [ recipes[0] ], attributes[1] );
+  helper.attach( results[1], [ recipes[1] ], attributes[1] );
+
 
   // @TODO work not very best, because when we creating models,
   // that cannot be async apply - we must to add that array into results array/object
@@ -229,3 +234,4 @@ const relate = async (options, results, helper) => {
 module.exports.get   = get;
 module.exports.table_name   = table_name;
 module.exports.relate = relate;
+module.exports.relate2 = relate2;
