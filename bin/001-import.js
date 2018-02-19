@@ -18,6 +18,7 @@ let helper     = require(path.resolve(__dirname, '003-helper'));
 // @todo make it auto-icludable from folder
 let Attribute = require(path.resolve(__dirname, 'attributes'));
 
+//@TODO move that to attribute wrapper
 let Allergy    = require(path.resolve(__dirname, 'allergy'));
 let Course     = require(path.resolve(__dirname, 'courses'));
 let Cuisine    = require(path.resolve(__dirname, 'cuisines'));
@@ -63,8 +64,8 @@ async.parallel({
 		}
 
 		if( !results
-			// || !results.allergies || !results.courses
-			// 	|| !results.cuisines || !results.diets
+			|| !results.recipes || !results.attributes
+				|| !results.departments
 			// 	|| !results.holidays || !results.nutritions
 			// 	|| !results.recipes
 			 ) {
@@ -86,25 +87,13 @@ async.parallel({
 
 		});
 
-				// ing[1] = await helper.create(options, ingredeieienetsData[1]);
-				// ing[2] = await helper.create(options, ingredeieienetsData[2]);
-				// ing[3] = await helper.create(options, ingredeieienetsData[3]);
-				// console.log(ing);
-																																																																																																															
+
+
 		Recipe.relate( options, results, helper );
 
 
 		// console.log(err);
 		// console.log(results);
-//
-		// console.log(results.allergies);
-		// console.log(results.courses);
-    // console.log(results.cuisines);
-    // console.log(results.diets);
-    // console.log(results.holidays);
-    // console.log(results.nutritions);
-
-
 
 
 
