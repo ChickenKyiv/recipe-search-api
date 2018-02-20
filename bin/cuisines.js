@@ -1,8 +1,6 @@
 let pattern = "cu1";
 
 
-'use strict';
-
 let table_name = 'Cuisine'
 
 

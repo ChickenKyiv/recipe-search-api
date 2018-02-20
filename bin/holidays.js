@@ -1,6 +1,5 @@
 let pattern = "h1";
 
-'use strict';
 
 let table_name = 'Holiday'
 

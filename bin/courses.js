@@ -1,7 +1,5 @@
 let pattern = "co1";
 
-'use strict';
-
 
 let table_name = 'Course'
 

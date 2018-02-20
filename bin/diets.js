@@ -1,4 +1,3 @@
-'use strict';
 
 let table_name = 'Diet'
 let pattern = "d1";

@@ -1,8 +1,6 @@
 let pattern = "n1";
 
 
-'use strict';
-
 
 let table_name = 'Nutritions'
 

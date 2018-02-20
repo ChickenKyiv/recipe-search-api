@@ -1,7 +1,6 @@
 let pattern = "al1";
 
 
-'use strict';
 
 const debug   = require('debug');
 

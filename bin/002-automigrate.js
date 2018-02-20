@@ -1,4 +1,3 @@
-'use strict';
 
 var path     = require('path');
 
@@ -10,7 +9,7 @@ var lbTables = [
   'Attribute',
   'Department',
 	'Ingredient',
-	
+
   'Recipe'
 ];
 
