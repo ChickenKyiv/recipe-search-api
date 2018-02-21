@@ -20,7 +20,7 @@
   "dependencies": {
     "compression": "^1.0.3",
     "cors": "^2.5.2",
-    "jest": "^22.3.0",
+    "jest": "^22.4.0",
     "loopback": "^3.18.2",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^5.2.0",
