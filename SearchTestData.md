@@ -1,5 +1,5 @@
 
-links to our testing environment
+[links to our testing environment](https://loopback-recipe-search.herokuapp.com/explorer) 
 **Ingredients search **
 
 
@@ -12,7 +12,7 @@ http://recipe-api-loopback.herokuapp.com/api/ingredient?filter[where][name][like
 | Pathl  | l  |
 | Pathl  | http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%token%  |
 **not working **
-https://recipe-api-loopback.herokuapp.com/api/ingredients?filter[where][name]=chicken
+https://loopback-recipe-search.herokuapp.com/api/ingredients?filter[where][name]=chicken
 **not working **   
 https://recipe-api-loopback.herokuapp.com/api/ingredients?filter[where][name][inq]=chicken&filter[where][name][inq]=pasta  
 **not working **    
