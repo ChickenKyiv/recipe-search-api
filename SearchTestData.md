@@ -17,6 +17,12 @@ https://loopback-recipe-search.herokuapp.com/api/ingredients?filter[where][name]
 https://loopback-recipe-search.herokuapp.com/api/ingredients?filter[where][name][inq]=chicken&filter[where][name][inq]=pasta  
 **not working **    
 https://loopback-recipe-search.herokuapp.com/api/ingredients?filter[where][name][inq]=chicken&filter[where][name][nin]=pasta  
+---
+**working stuff**
+https://loopback-recipe-search.herokuapp.com/api/ingredient
+https://loopback-recipe-search.herokuapp.com/api/ingredient?filter[where][name][like]=kosher
+https://loopback-recipe-search.herokuapp.com/api/ingredient?filter[where][name]=chicken
+https://loopback-recipe-search.herokuapp.com/api/ingredient?filter[where][name][like]=oil
 
 
 **Cousines search**
