@@ -3,6 +3,12 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 
+
+
+const Raven = require('raven');
+Raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
+
+
 var app = module.exports = loopback();
 
 app.start = function() {
