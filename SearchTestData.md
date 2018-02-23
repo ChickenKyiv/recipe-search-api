@@ -7,16 +7,16 @@ http://recipe-api-loopback.herokuapp.com/api/ingredient?filter[where][name][like
 
 | First Header  | Second Header | Status |
 | ------------- | ------------- |------------- |
-| Method  | GET  |
-| Pathl  | https://loopback-recipe-search.herokuapp.com/api/ingredient  |
+| Method  | GET  | |
+| Pathl  | https://loopback-recipe-search.herokuapp.com/api/ingredient  | |
 | Pathl  | https://loopback-recipe-search.herokuapp.com/api/ingredient?filter[where][name][like]=kosher
-  |
+  | W |
 | Pathl  | https://loopback-recipe-search.herokuapp.com/api/ingredient?filter[where][name]=chicken
-  |
+  |  W |
 | Pathl  | 
 https://loopback-recipe-search.herokuapp.com/api/ingredient?filter[where][name][like]=oil
-  |
-| Pathl  | http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%token%  |
+  | W |
+| Pathl  | http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%token%  | W |
 
 **not working **   
 https://loopback-recipe-search.herokuapp.com/api/ingredients?filter[where][name][inq]=chicken&filter[where][name][inq]=pasta  
@@ -31,10 +31,10 @@ https://loopback-recipe-search.herokuapp.com/api/ingredients?filter[where][name]
 **Cousines search**
 | First Header  | Second Header | Status |
 | ------------- | ------------- |------------- |
-| Method  | GET  |
-| Pathl  | https://loopback-recipe-search.herokuapp.com/api/attribute?filter[where][id]=5a8b57fc25b0113b4b961a27  |
-| Pathl  | https://loopback-recipe-search.herokuapp.com/api/attribute?filter[where][and][][type]=cuisine  |
-| Pathl  | http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%token%  |
+| Method  | GET  |  | 
+| Pathl  | https://loopback-recipe-search.herokuapp.com/api/attribute?filter[where][id]=5a8b57fc25b0113b4b961a27  | W |
+| Pathl  | https://loopback-recipe-search.herokuapp.com/api/attribute?filter[where][and][][type]=cuisine  | W |
+| Pathl  | http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%token%  | W |
  
 
 
@@ -43,10 +43,10 @@ https://loopback-recipe-search.herokuapp.com/api/ingredients?filter[where][name]
 **Courses search**
 | First Header  | Second Header | Status |
 | ------------- | ------------- |------------- |
-| Method  | GET  |
+| Method  | GET  | | 
 | Pathl  | https://loopback-recipe-search.herokuapp.com/api/attribute?filter[where][and][][type]=course  | W |
-| Pathl  | l  | |
-| Pathl  |https://loopback-recipe-search.herokuapp.com/api/attribute?filter[where][name][like]=Appetizers  | w|
+| Pathl  | l  | W |
+| Pathl  |https://loopback-recipe-search.herokuapp.com/api/attribute?filter[where][name][like]=Appetizers  | w |
 
 https://loopback-recipe-search.herokuapp.com/api/course?filter[where][id]=courseId  **working **
 https://loopback-recipe-search.herokuapp.com/api/course?filter[where][id][inq]=courseId&filter[where][id][inq]=courseId  **working **  
@@ -58,10 +58,10 @@ https://loopback-recipe-search.herokuapp.com/api/attribute?filter[where][and][][
 **Holidays search **
 | First Header  | Second Header | Status |
 | ------------- | ------------- |------------- |
-| Method  | GET  |
-| Pathl  | https://loopback-recipe-search.herokuapp.com/api/attribute?filter[where][and][][type]=holiday  |
-| Pathl  | l  |
-| Pathl  | http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%token%  |
+| Method  | GET  | |
+| Pathl  | https://loopback-recipe-search.herokuapp.com/api/attribute?filter[where][and][][type]=holiday  | |
+| Pathl  | l  | |
+| Pathl  | http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%token%  | |
 https://loopback-recipe-search.herokuapp.com/api/holiday?filter[where][id]=holidayId  **working **  
 https://loopback-recipe-search.herokuapp.com/api/holiday?filter[where][id][inq]=holidayId&filter[where][id][inq]=holidayId  **working **  
 https://loopback-recipe-search.herokuapp.com/api/holiday?filter[where][id][inq]=holidayId&filter[where][id][nin]=holidayId  
@@ -69,9 +69,9 @@ https://loopback-recipe-search.herokuapp.com/api/holiday?filter[where][id][inq]=
 **Allergies search **
 | First Header  | Second Header | Status |
 | ------------- | ------------- |------------- |
-| Method  | GET  |
-| Pathl  | https://loopback-recipe-search.herokuapp.com/api/attribute?filter[where][and][][type]=allergy  |
-| Pathl  | l  |
+| Method  | GET  | |
+| Pathl  | https://loopback-recipe-search.herokuapp.com/api/attribute?filter[where][and][][type]=allergy  | |
+| Pathl  | l  | |
 | Pathl  | http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%token%  |
 https://loopback-recipe-search.herokuapp.com/api/allergy?filter[where][id]=allergyId  
 https://loopback-recipe-search.herokuapp.com/api/allergy?filter[where][id][inq]=allergyId&filter[where][id][inq]=allergyId  
@@ -80,52 +80,35 @@ https://loopback-recipe-search.herokuapp.com/api/allergy?filter[where][id][inq]=
 **Diets search **
 | First Header  | Second Header | Status |
 | ------------- | ------------- |------------- |
-| Method  | GET  |
-| Pathl  | https://loopback-recipe-search.herokuapp.com/api/attribute?filter[where][and][][type]=diet  |
+| Method  | GET  | |
+| Pathl  | https://loopback-recipe-search.herokuapp.com/api/attribute?filter[where][and][][type]=diet  | |
 | Pathl  | l  |
-| Pathl  | http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%token%  |
+| Pathl  | http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%token%  | |
 https://loopback-recipe-search.herokuapp.com/api/diet?filter[where][id]=dietId  **working **  
 https://loopback-recipe-search.herokuapp.com/api/diet?filter[where][id][inq]=dietId&filter[where][id][inq]=dietId    **working **  
 https://loopback-recipe-search.herokuapp.com/api/diet?filter[where][id][inq]=dietId&filter[where][id][nin]=dietId  
 
-**Cooking Time ** lt XX:XX
-| First Header  | Second Header | Status |
-| ------------- | ------------- |------------- |
-| Method  | GET  |
-| Pathl  | l  |
-| Pathl  | l  |
-| Pathl  | http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%token%  |
-https://loopback-recipe-search.herokuapp.com/api/recipe?filter[where][cook_time][lt]=5m  
-
-**Date(related to weekly menus) **
-| First Header  | Second Header | Status |
-| ------------- | ------------- |------------- |
-| Method  | GET  |
-| Pathl  | l  |
-| Pathl  | l  |
-| Pathl  | http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%token%  |
-date:{ gt: Date.Now() - ONE_WEEK }
-https://loopback-recipe-search.herokuapp.com/api/  
 
 ### Recipe Name
 | First Header  | Second Header | Status |
 | ------------- | ------------- |------------- |
-| Method  | GET  |
-| Pathl  | l  |
-| Pathl  | l  |
-| Pathl  | http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%token%  |
-https://recipe-api-loopback.herokuapp.com/api/recipe?filter[like][name]=%Pork%  **not working **    
-https://loopback-recipe-search.herokuapp.com/api/recipe?filter[ilike][name]=%Pork%  **not working **    
+| Method  | GET  | |
+| Pathl  | l  | | 
+| Pathl  | https://loopback-recipe-search.herokuapp.com/api/recipe?filter[where][title][like]=Apple  | W |
+| Pathl  | https://loopback-recipe-search.herokuapp.com/api/recipe?filter[where][title][like]=Chicken  | W |
+  
 
-propose to add example at REST link on https://loopback.io/doc/en/lb3/Where-filter.html#ilike-and-nilike  
+@TODO add stuff where we can search by title not only at recipe name, but including ingredients and search there.
+
+@TODO propose to add example at REST link on https://loopback.io/doc/en/lb3/Where-filter.html#ilike-and-nilike  
 
 ### Long query
 | First Header  | Second Header | Status |
 | ------------- | ------------- |------------- |
-| Method  | GET  |
-| Pathl  | l  |
-| Pathl  | l  |
-| Pathl  | http://loopback-recipe-search/api/ingredient?filter[where][name]=chicken&access_token=%token%  |
+| Method  | GET  | |
+| Pathl  | l  | |
+| Pathl  | l  | |
+| Pathl  | http://loopback-recipe-search/api/ingredient?filter[where][name]=chicken&access_token=%token%  | |
 https://recipe-api-loopback.herokuapp.com/api/recipe?filter[where][and][0][name]=Pork  
 &filter[where][and][1][ingredients][name]=chicken  
 &filter[where][and][2][cousine][cousineId]=cousineId  
@@ -138,10 +121,10 @@ https://recipe-api-loopback.herokuapp.com/api/recipe?filter[where][and][0][name]
 ### Parts of long query
 | First Header  | Second Header | Status |
 | ------------- | ------------- |------------- |
-| Method  | GET  |
-| Pathl  | l  |
-| Pathl  | l  |
-| Pathl  | http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%token%  |
+| Method  | GET  | |
+| Pathl  | l  | |
+| Pathl  | l  | | 
+| Pathl  | http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%token%  | |
 https://loopback-recipe-search.herokuapp.com/api/recipe?filter[where][allergies][inq]=allergyId&filter[where][allergies][inq]=allergyId **working **  
 https://loopback-recipe-search.herokuapp.com/api/recipe?filter[where][and][0][allergies][inq]=allergyId&filter[where][and][1][allergies][inq]=allergyId **working **  
 https://loopback-recipe-search.herokuapp.com/api/recipe?filter[where][and][0][allergies][inq]=allergyId&filter[where][and][1][allergies][inq]=allergyId&filter[where][and][2][courses][inq]=courseId&filter[where][and][2][courses][inq]=courseId **working **  
