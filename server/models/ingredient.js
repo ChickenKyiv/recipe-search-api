@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports = function(Ingredients) {
+module.exports = function(Ingredient) {
 
 };
