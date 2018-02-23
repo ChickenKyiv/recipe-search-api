@@ -88,36 +88,19 @@ https://loopback-recipe-search.herokuapp.com/api/diet?filter[where][id]=dietId  
 https://loopback-recipe-search.herokuapp.com/api/diet?filter[where][id][inq]=dietId&filter[where][id][inq]=dietId    **working **  
 https://loopback-recipe-search.herokuapp.com/api/diet?filter[where][id][inq]=dietId&filter[where][id][nin]=dietId  
 
-**Cooking Time ** lt XX:XX
-| First Header  | Second Header | Status |
-| ------------- | ------------- |------------- |
-| Method  | GET  |
-| Pathl  | l  |
-| Pathl  | l  |
-| Pathl  | http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%token%  |
-https://loopback-recipe-search.herokuapp.com/api/recipe?filter[where][cook_time][lt]=5m  
-
-**Date(related to weekly menus) **
-| First Header  | Second Header | Status |
-| ------------- | ------------- |------------- |
-| Method  | GET  |
-| Pathl  | l  |
-| Pathl  | l  |
-| Pathl  | http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%token%  |
-date:{ gt: Date.Now() - ONE_WEEK }
-https://loopback-recipe-search.herokuapp.com/api/  
 
 ### Recipe Name
 | First Header  | Second Header | Status |
 | ------------- | ------------- |------------- |
 | Method  | GET  |
 | Pathl  | l  |
-| Pathl  | l  |
-| Pathl  | http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%token%  |
-https://recipe-api-loopback.herokuapp.com/api/recipe?filter[like][name]=%Pork%  **not working **    
-https://loopback-recipe-search.herokuapp.com/api/recipe?filter[ilike][name]=%Pork%  **not working **    
+| Pathl  | https://loopback-recipe-search.herokuapp.com/api/recipe?filter[where][title][like]=Apple  | |
+| Pathl  | https://loopback-recipe-search.herokuapp.com/api/recipe?filter[where][title][like]=Chicken  | |
+  
 
-propose to add example at REST link on https://loopback.io/doc/en/lb3/Where-filter.html#ilike-and-nilike  
+@TODO add stuff where we can search by title not only at recipe name, but including ingredients and search there.
+
+@TODO propose to add example at REST link on https://loopback.io/doc/en/lb3/Where-filter.html#ilike-and-nilike  
 
 ### Long query
 | First Header  | Second Header | Status |
