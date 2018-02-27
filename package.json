@@ -15,7 +15,7 @@
     "s": "npm run migrate && nodemon bin/001-import.js"
   },
   "dependencies": {
-    "compression": "^1.0.3",
+    "compression": "^1.7.2",
     "cors": "^2.5.2",
     "jest": "^22.4.0",
     "loopback": "^3.18.2",
