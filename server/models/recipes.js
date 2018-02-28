@@ -29,4 +29,46 @@ module.exports = function(Recipe) {
     });
 
 
+
+    Recipe.biggestSearchMethodEver = function(options, cb){
+
+    console.log(options);
+
+    var Ingredient = Recipe.app.models.Ingredient;
+
+    // we assume that we're have departmentId array. maybe we need to have 1-to-1 relation
+    // departmentId: { inq:departmentId } //we assume that we're have departmentId array. maybe we need to have 1-to-1 relation
+
+    // Ingredient.find({
+    //     where:{
+    //       departmentId: departmentId 
+    
+    //     },
+    //     fields: [
+    //       // 'img', 'url',
+
+    //       ]       
+    //   },cb);
+
+    Recipe.remoteMethod('biggestSearchMethodEver', {
+        accepts: //[]
+        {
+          arg: 'ing',
+          type: 'string',
+          required: true
+        },
+        // returns: {
+        //   arg: 'information',
+        //   type: 'array'
+        // },
+        http: {
+          path: '/inginc/',
+          verb: 'get'
+        }
+      });
+
+
+  };
+
+
 };
