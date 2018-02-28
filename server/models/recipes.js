@@ -36,10 +36,12 @@ module.exports = function(Recipe) {
 
 
 
-    Recipe.biggestSearchMethodEver = function(a,b, cb){
+    Recipe.biggestSearchMethodEver = function(a,b,c,d,e,f,g,h,i, cb){
 
     console.log(a);
 console.log(b);
+ console.log(c);
+console.log(d);
 
     var Ingredient = Recipe.app.models.Ingredient;
      // raven.captureException(e);
@@ -62,51 +64,50 @@ console.log(b);
     Recipe.remoteMethod('biggestSearchMethodEver', {
         accepts: [
             {
-              arg: 'inginc',
+              arg: 'ingredient-inc',
               type: 'string',
               required: false
             },
             {
-              arg: 'ingex',
+              arg: 'ingredient-ex',
+              type: 'string',
+              required: false
+            },
+            {
+              arg: 'allergies-inc',
+              type: 'string',
+              required: false
+            },
+            {
+              arg: 'cuisines-inc',
+              type: 'string',
+              required: false
+            },
+            {
+              arg: 'cuisines-ex',
+              type: 'string',
+              required: false
+            },
+            {
+              arg: 'courses-inc',
+              type: 'string',
+              required: false
+            },
+            {
+              arg: 'courses-ex',
+              type: 'string',
+              required: false
+            },
+            {
+              arg: 'holidays-inc',
+              type: 'string',
+              required: false
+            },
+            {
+              arg: 'holidays-ex',
               type: 'string',
               required: false
             }
-           // ,
-            // {
-            //   arg: 'inginc',
-            //   type: 'string',
-            //   required: false
-            // },
-            // {
-            //   arg: 'inginc',
-            //   type: 'string',
-            //   required: false
-            // },
-            // {
-            //   arg: 'inginc',
-            //   type: 'string',
-            //   required: false
-            // },
-            // {
-            //   arg: 'inginc',
-            //   type: 'string',
-            //   required: false
-            // },
-            // {
-            //   arg: 'inginc',
-            //   type: 'string',
-            //   required: false
-            // },
-            // {
-            //   arg: 'inginc',
-            //   type: 'string',
-            //   required: false
-            // },
-            // {
-            //   arg: 'inginc',
-            //   type: 'string',
-            //   required: false
-            // }
 
 
         ]
