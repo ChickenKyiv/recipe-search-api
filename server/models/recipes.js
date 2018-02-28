@@ -36,12 +36,48 @@ module.exports = function(Recipe) {
 
 
 
-    Recipe.biggestSearchMethodEver = function(a,b,c,d,e,f,g,h,i, cb){
+    Recipe.biggestSearchMethodEver = (
+        ingInc,
+        ingEx,
+        allergiesInc,
+        cuisinesInc, 
+        cuisinesEx, 
+        coursesInc, 
+        coursesEx, holidaysInc, holidaysEx, cb ) => {
 
-    console.log(a);
-console.log(b);
- console.log(c);
-console.log(d);
+    console.log(ingInc);
+console.log(ingEx);
+ console.log(allergiesInc);
+console.log(cuisinesInc);
+console.log(cuisinesEx);
+console.log(coursesInc);
+console.log(coursesEx);
+console.log(holidaysInc);
+console.log(holidaysEx);
+
+ingInc = JSON.parse("[" + ingInc + "]");
+ingEx  = JSON.parse("[" + ingEx + "]");
+
+allergiesInc = JSON.parse("[" + allergiesInc + "]");
+
+cuisinesInc  = JSON.parse("[" + cuisinesInc + "]");
+cuisinesEx   = JSON.parse("[" + cuisinesEx + "]");
+
+coursesInc   = JSON.parse("[" + coursesInc + "]");
+coursesEx    = JSON.parse("[" + coursesEx + "]");
+
+holidaysInc  = JSON.parse("[" + holidaysInc + "]");
+holidaysEx   = JSON.parse("[" + holidaysEx + "]");
+
+ console.log(ingInc);
+console.log(ingEx);
+ console.log(allergiesInc);
+console.log(cuisinesInc);
+console.log(cuisinesEx);
+console.log(coursesInc);
+console.log(coursesEx);
+console.log(holidaysInc);
+console.log(holidaysEx);
 
     var Ingredient = Recipe.app.models.Ingredient;
      // raven.captureException(e);
