@@ -64,7 +64,7 @@ async.parallel({
 
 		if( !results
 			|| !results.recipes || !results.attributes
-				|| !results.departments
+			|| !results.departments
 			// 	|| !results.holidays || !results.nutritions
 			// 	|| !results.recipes
 			 ) {
