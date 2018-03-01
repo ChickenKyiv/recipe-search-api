@@ -46,14 +46,14 @@ module.exports = function(Recipe) {
         coursesEx, holidaysInc, holidaysEx, cb ) => {
 
     console.log(ingInc);
-console.log(ingEx);
- console.log(allergiesInc);
-console.log(cuisinesInc);
-console.log(cuisinesEx);
-console.log(coursesInc);
-console.log(coursesEx);
-console.log(holidaysInc);
-console.log(holidaysEx);
+    console.log(ingEx);
+    console.log(allergiesInc);
+    console.log(cuisinesInc);
+    console.log(cuisinesEx);
+    console.log(coursesInc);
+    console.log(coursesEx);
+    console.log(holidaysInc);
+    console.log(holidaysEx);
 
 ingInc = JSON.parse("[" + ingInc + "]");
 ingEx  = JSON.parse("[" + ingEx + "]");
@@ -78,6 +78,49 @@ console.log(coursesInc);
 console.log(coursesEx);
 console.log(holidaysInc);
 console.log(holidaysEx);
+
+var whereObject = {
+
+};
+
+let ingInc_query, 
+    ingEx_query, 
+    allergiesInc_query, 
+    cuisinesInc_query, 
+    cuisinesEx_query,  
+    coursesInc_query, 
+    coursesEx_query, 
+    holidaysInc_query, 
+    holidaysEx_query;
+
+    // @TODO test if we pass 0 as id.
+    if ( ingInc ) {
+        
+    }
+    if ( ingEx ) {
+        
+    }
+    if ( allergiesInc ) {
+        
+    }
+    if ( cuisinesInc ) {
+        
+    }
+    if ( cuisinesEx ) {
+        
+    }
+    if ( coursesInc ) {
+        
+    }
+    if ( coursesEx ) {
+        
+    }
+    if ( holidaysInc ) {
+        
+    }
+    if ( holidaysEx ) {
+        
+    }
 
     var Ingredient = Recipe.app.models.Ingredient;
      // raven.captureException(e);
