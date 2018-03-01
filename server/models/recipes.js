@@ -126,6 +126,31 @@ let ingInc_query,
      // raven.captureException(e);
     // we assume that we're have departmentId array. maybe we need to have 1-to-1 relation
     // departmentId: { inq:departmentId } //we assume that we're have departmentId array. maybe we need to have 1-to-1 relation
+ 
+ // IngredientModel.find({
+    //     where:{
+    //       deaprtmentId: { inq:departmentId } //we assume that we're have departmentId array. maybe we need to have 1-to-1 relation
+    //     },
+    //     fields: [
+    //       // 'img', 'url',
+
+    //       ]
+    //   },cb);
+
+// GroceryModel.findById(groceryId)
+        // .then(function(grocery){
+
+        //  DepartmentModel.find({
+        //      where:{
+        //          id: { inq:grocery.departments }
+        //      },
+        //      // fields: []
+        //  },cb);
+
+        // })
+        // .catch(function(err){
+        //  if(err){ cb(err); }
+        // });
 
     Ingredient.find({
         // where:{
@@ -137,6 +162,24 @@ let ingInc_query,
 
         //   ]       
       }, cb);
+
+    // available relationships
+    // ingredientsList
+    // attributesList
+    Recipe.find({
+        include: 'attributesList',
+        where: {
+            attributes: {
+                inq: {
+
+                } 
+                // ,
+                // nin: 
+            }
+        }
+    })
+
+
     };
 
 
