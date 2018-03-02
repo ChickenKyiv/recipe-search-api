@@ -180,6 +180,46 @@ const relate2 = async (options, results, helper) => {
 };
 
 
+const relate_brand_new = async ( results, helper) => {
+  if( !results
+      || !results.recipes
+      || !results.attributes
+    ) {
+        raven.captureException("cannot attach additional data to recipes");
+  }
+
+  let collections
+  try {
+
+    collections = await helper.find_all_data_copy_of_function_above(options, (err, collection) => {
+
+      helper.attach( results.attributes, collection, attributes[0]);
+
+    });
+    
+    helper.find_all_data_copy_of_function_above(options)
+          .then((err, collection) => {
+
+            helper.attach( results.attributes, collection, attributes[0]);
+
+          });
+
+
+  } catch (e) {
+    raven.captureException(e);
+    //this will eventually be handled by your error handling middleware
+    next(e)
+  }
+
+  //@TODO create a method with foreach for each attribute in order to attach data to recipe
+  helper.attach( results.attributes, collection, attributes[0]);
+
+  // @TODO work not very best, because when we creating models,
+  // that cannot be async apply - we must to add that array into results array/object
+  // helper.attach( results.ingredients,    recipes, attributes[1]);
+
+};
+
 const relate = async (options, results, helper) => {
 
   // this is a hardcode. @TODO handle this later.

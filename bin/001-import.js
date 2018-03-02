@@ -38,6 +38,7 @@ let options = {
 	server: server,
 	database: database,
 	raven: raven,
+
   predata: _.union(
 		Allergy.get(),
 		Course.get(),
@@ -65,10 +66,9 @@ async.parallel({
 		if( !results
 			|| !results.recipes || !results.attributes
 			|| !results.departments
-			// 	|| !results.holidays || !results.nutritions
-			// 	|| !results.recipes
-			 ) {
-					raven.captureException("not imported well");
+			
+		) {
+				raven.captureException("not imported well");
 		}
 
 

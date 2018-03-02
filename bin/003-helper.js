@@ -23,11 +23,11 @@ const get_id_array = (array) => {
 // model is a model name, that we use fo passing data
 // @TODO and checking is model exist and create a variables from array by easiest way. i saw similar sutff at jQuery libraries.
 
-const vaza = () => {
+// const vaza = () => {
 
 
 
-};
+// };
 
 // const create_ingredients = (options, wrapper, cb) => {
 //   if( !options ){ raven.captureException('Options was not specified');  }
@@ -49,14 +49,11 @@ const vaza = () => {
 //@TODO it's a stupid duplicate. as usually - want to speed up development
 const create_with_relations = (options, datazzzz, wrapper, cb) => {
 
-  if( !options ){ raven.captureException('Options was not specified');  }
+  if ( !options ){ raven.captureException('Options was not specified');  }
   if ( !cb ) {    raven.captureException('Callback was not specified'); }
   if ( !wrapper && !wrapper.table_name ) { raven.captureException('Model was not specified'); }
 
-  let server
-  let database
-  let raven
-  let predata
+  let server, database, raven, predata
   ( {server, database, raven, predata} = options );
 
   let Model      = server.models[wrapper.table_name];
@@ -85,14 +82,11 @@ const create_with_relations = (options, datazzzz, wrapper, cb) => {
 
 const create = (options, wrapper, cb) => {
 
-  if( !options ){ raven.captureException('Options was not specified');  }
+  if ( !options ){ raven.captureException('Options was not specified');  }
   if ( !cb ) {    raven.captureException('Callback was not specified'); }
   if ( !wrapper && !wrapper.table_name ) { raven.captureException('Model was not specified'); }
 
-  let server
-  let database
-  let raven
-  let predata
+  let server, database, raven, predata
   ( {server, database, raven, predata} = options );
 
   let Model      = server.models[wrapper.table_name];
@@ -135,6 +129,10 @@ const attach = ( array_ids, collection, attribute ) => {
 
      //@TODO check if collection is simple item, not an array
      _.map( collection, item => item.updateAttribute(attribute, arrayWithIds) )
+
+
+
+
      console.log(collection);
      // debug('attach attached!'); // @TODO
 };
@@ -146,9 +144,7 @@ const get_imported_data_for_relate_function = async ( options, table_name ) => {
   // I don't like that we're searching all recipes at this method
 
   //@TODO apply this changes to all import model files
-  let server
-  let database
-  let raven
+  let server, database, raven
   ( {server, database, raven} = options );
 
 
@@ -171,10 +167,44 @@ const get_imported_data_for_relate_function = async ( options, table_name ) => {
 }
 
 
+const find_all_data_copy_of_function_above = async (options, cb) => {
+
+  // this is a hardcode. @TODO handle this later.
+  // I don't like that we're searching all recipes at this method
+
+  //@TODO apply this changes to all import model files
+  let server, database, raven
+  ( {server, database, raven} = options );
+
+  let collections
+  try {
+
+    let modelInstance = server.models[table_name];
+    collections       = await modelInstance.find({});
+
+  } catch (e) {
+    raven.captureException(e);
+    //this will eventually be handled by your error handling middleware
+    next(e)
+  }
+  // end of what i don't like
+
+
+  //-------------------------------
+
+
+
+
+  // @TODO NOT SURE HOW I CAN CALL CALLBACK AND ALSO RUN ATTACH FUNCTION.
+  cb(err, collections);
+
+
+};
+
 module.exports = {
   get_id_array : get_id_array,
   create   : create,
   attach   : attach,
   get_data : get_imported_data_for_relate_function,
-  create_with_relations:create_with_relations
+  create_with_relations: create_with_relations
 };

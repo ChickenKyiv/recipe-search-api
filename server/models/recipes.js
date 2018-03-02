@@ -140,11 +140,11 @@ let inq_array, nin_array;
 
     inq_array = ingInc + cuisinesInc + coursesInc + holidaysInc ;
     
-    inq_array2 =  _.merge(ingInc, cuisinesInc, coursesInc, holidaysInc) ;
+    inq_array2 =  _.union(ingInc, cuisinesInc, coursesInc, holidaysInc) ;
     console.log(inq_array2);
 
     nin_array = allergiesInc + cuisinesEx + coursesEx + holidaysEx ;
-    nin_array2 = _.merge(allergiesInc, cuisinesEx, coursesEx, holidaysEx) ;
+    nin_array2 = _.union(allergiesInc, cuisinesEx, coursesEx, holidaysEx) ;
     console.log(nin_array2);
     // @TODO maybe we need to check if this id's are really isset in our database.
     // raven.captureException(e);
