@@ -187,7 +187,7 @@ console.log(created_diets);
 console.log(created_holidays);
 
 
-  
+
   //@TODO change that. so bad and stupid. but fast
   let attributes_for_recipe1, 
     attributes_for_recipe2,
@@ -195,7 +195,32 @@ console.log(created_holidays);
       attributes_for_recipe4;
 
 
+      attributes_for_recipe1 = created_allergies[0] created_allergies[1] created_allergies[2]
+      attributes_for_recipe2 = created_allergies[1] created_allergies[2]
+      attributes_for_recipe3 = created_allergies[2] created_allergies[3]
+      attributes_for_recipe4 = created_allergies[3] created_allergies[4]
 
+      attributes_for_recipe1 = created_courses[0] created_courses[1] created_courses[2]
+      attributes_for_recipe2 = created_courses[1] created_courses[2]
+      attributes_for_recipe3 = created_courses[2] created_courses[3]
+      attributes_for_recipe4 = created_courses[3] created_courses[4]
+
+      attributes_for_recipe1 = created_cuisines[0] created_cuisines[1] created_cuisines[2]
+      attributes_for_recipe2 = created_cuisines[1] created_cuisines[2]
+      attributes_for_recipe3 = created_cuisines[2] created_cuisines[3]
+      attributes_for_recipe4 = created_cuisines[3] created_cuisines[4]
+
+      attributes_for_recipe1 = created_diets[0] created_diets[1] created_diets[2]
+      attributes_for_recipe2 = created_diets[1] created_diets[2]
+      attributes_for_recipe3 = created_diets[2] created_diets[3]
+      attributes_for_recipe4 = created_diets[3] created_diets[4]
+
+      attributes_for_recipe1 = created_holidays[0] created_holidays[1] created_holidays[2]
+      attributes_for_recipe2 = created_holidays[1] created_holidays[2]
+      attributes_for_recipe3 = created_holidays[2] created_holidays[3]
+      attributes_for_recipe4 = created_holidays[3] created_holidays[4]    
+      
+        
   // console.log( _.where(results.attributes, {type: "holiday"}) );
   // helper.attach( results[0], [ recipes[0] ], attributes[0] );
   // helper.attach( results[1], [ recipes[1] ], attributes[0] );
