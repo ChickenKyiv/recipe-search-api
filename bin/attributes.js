@@ -6,6 +6,7 @@ const get = (data) => {
   	return data;
 };
 
+const path    = require('path');
 
 let Allergy    = require(path.resolve(__dirname, 'allergy'));
 let Course     = require(path.resolve(__dirname, 'courses'));
@@ -29,3 +30,5 @@ const get2 = () => {
 
 module.exports.get        = get;
 module.exports.table_name = table_name;
+
+module.exports.get2        = get2;

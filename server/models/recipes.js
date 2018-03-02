@@ -140,11 +140,11 @@ module.exports = function(Recipe) {
 
     // inq_array = ingInc + cuisinesInc + coursesInc + holidaysInc ;
     
-    inq_array2 =  _.union(ingInc, cuisinesInc, coursesInc, holidaysInc) ;
+    inq_array2 = _.without( _.union(ingInc, cuisinesInc, coursesInc, holidaysInc), 0 ) ;
     console.log(inq_array2);
 
     // nin_array = allergiesInc + cuisinesEx + coursesEx + holidaysEx ;
-    nin_array2 = _.union(allergiesInc, cuisinesEx, coursesEx, holidaysEx) ;
+    nin_array2 = _.without( _.union(allergiesInc, cuisinesEx, coursesEx, holidaysEx), 0 ) ;
     console.log(nin_array2);
     // @TODO maybe we need to check if this id's are really isset in our database.
     // raven.captureException(e);
@@ -274,6 +274,61 @@ module.exports = function(Recipe) {
 
     // @TODO Do we need method where we get titles, 
     // and find them at attributes, get ids and pass this ids into where statement
+
+    Recipe.searching = (
+        incuded,
+        excluded,
+        cb 
+    ) => {
+
+
+        incuded   = JSON.parse("[" + incuded + "]");
+        excluded  = JSON.parse("[" + excluded + "]");
+
+        Recipe.find({
+            include: 'attributesList'
+            ,
+            where: {
+                attributes: {
+
+                    inq: incuded,
+                    nin: excluded
+
+                }
+            }
+        }, function(err, data){
+
+
+            console.log(data);
+        })
+
+
+    };
+
+
+    Recipe.remoteMethod('searching', {
+        accepts: [
+            {
+              arg: 'attributes-included',
+              type: 'string',
+              required: false
+            },
+            {
+              arg: 'attributes-excluded',
+              type: 'string',
+              required: false
+            }
+        ],
+        returns: {
+          arg: 'recipes',
+          type: 'array'
+        },
+        http: {
+          path: '/searching/',
+          verb: 'get'
+        }
+      });
+
 
 
 };

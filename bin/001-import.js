@@ -53,7 +53,7 @@ let options = {
 async.parallel({
 
 		recipes     : async.apply(helper.create, options, Recipe),
-    attributes  : async.apply(helper.create, options, Attribute),
+    	attributes  : async.apply(helper.create, options, Attribute),
 		departments : async.apply(helper.create, options, Departments),
 
 	}, function(err, results){
@@ -76,6 +76,8 @@ async.parallel({
 		// console.log('123');
 		// console.log(results.departments[0].id.toString())
 				// options.predata =
+
+
 		let idi = results.departments[0].id.toString();
 		let ingredeieienetsData = Ingredient.get(idi);
 
@@ -88,7 +90,14 @@ async.parallel({
 
 
 
-		Recipe.relate( options, results, helper );
+
+
+
+
+		// Recipe.relate( options, results, helper );
+
+
+		Recipe.relate3( options, results, helper );
 
 
 		// console.log(err);

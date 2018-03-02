@@ -12,11 +12,7 @@ let attributes = [
   'attributes',  // #0
   'ingredients'  // #1
   // 'nutritions', // #0
-  // 'cuisines',   // #1
-  // 'diets',      // #2
-  // 'holidays',   // #3
-  // 'courses',    // #4
-  // 'allergies'   // #5
+
 ];
 
 const get = () => {
@@ -83,47 +79,6 @@ const get = () => {
   	return data;
 
 };
-//
-// const get = () => {
-//
-//     var data     = [
-//       {
-//
-//         title: "Crock Pot Roast12",
-//         directions: [
-//          "Place beef roast in crock pot.",
-//           "Mix the dried mixes together in a bowl and sprinkle over the roast.",
-//           "Pour the water around the roast.",
-//           "Cook on low for 7-9 hours."
-//         ],
-//         prep_time    :"30min",
-//         total_time   :"3h",
-//         recipe_yield :"8",
-//         img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",
-//         url: "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
-//
-//       },
-//       {
-//
-//         title: "Crock Pot Roast1",
-//
-//         directions: [
-//           "Place beef roast in crock pot.",
-//           "Mix the dried mixes together in a bowl and sprinkle over the roast.",
-//           "Pour the water around the roast.",
-//           "Cook on low for 7-9 hours."
-//         ],
-//         prep_time    :"PT30M",
-//         total_time   :"PT3H",
-//         recipe_yield :"8",
-//         img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",
-//         url: "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
-//       }
-//      ];
-//
-//   	return data;
-//
-// };
 
 
 
@@ -168,6 +123,61 @@ const relate2 = async (options, results, helper) => {
   helper.attach( results[1], [ recipes[1] ], attributes[1] );
   helper.attach( results[2], [ recipes[2] ], attributes[1] );
   helper.attach( results[3], [ recipes[3] ], attributes[1] );
+
+
+  // @TODO work not very best, because when we creating models,
+  // that cannot be async apply - we must to add that array into results array/object
+  // helper.attach( results.ingredients,    recipes, attributes[1]);
+
+
+
+
+};
+
+
+const relate3 = async (options, results, helper) => {
+
+  // this is a hardcode. @TODO handle this later.
+  // I don't like that we're searching all recipes at this method
+
+  //@TODO apply this changes to all import model files
+  let server
+  let database
+  let raven
+  ( {server, database, raven} = options );
+
+
+  let recipes
+  try {
+
+    let Recipe = server.models[table_name];
+    recipes    = await Recipe.find({});
+
+
+  } catch (e) {
+    raven.captureException(e);
+    //this will eventually be handled by your error handling middleware
+    next(e)
+  }
+  // end of what i don't like
+
+  // var cc = helper.get_data(options, table_name);
+
+  // console.log(cc);
+// ......
+
+  //@TODO create a method with foreach for each attribute in order to attach data to recipe
+  console.log('-----');
+  console.log(results);
+  // console.log(recipes);
+  //@TODO change that. so bad and stupid. but fast
+
+
+
+  // helper.attach( results[0], [ recipes[0] ], attributes[0] );
+  // helper.attach( results[1], [ recipes[1] ], attributes[0] );
+  // helper.attach( results[2], [ recipes[2] ], attributes[0] );
+  // helper.attach( results[3], [ recipes[3] ], attributes[0] );
 
 
   // @TODO work not very best, because when we creating models,
@@ -273,3 +283,5 @@ module.exports.get   = get;
 module.exports.table_name   = table_name;
 module.exports.relate = relate;
 module.exports.relate2 = relate2;
+
+module.exports.relate3 = relate3;
