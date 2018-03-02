@@ -88,22 +88,22 @@ module.exports = function(Recipe) {
     console.log(holidaysInc);
     console.log(holidaysEx);
 
-// var whereObject = {
+    // var whereObject = {
 
-// };
+    // };
 
-// let ingInc_query, 
-//     ingEx_query, 
-//     allergiesInc_query, 
-//     cuisinesInc_query, 
-//     cuisinesEx_query,  
-//     coursesInc_query, 
-//     coursesEx_query, 
-//     holidaysInc_query, 
-//     holidaysEx_query;
+    // let ingInc_query, 
+    //     ingEx_query, 
+    //     allergiesInc_query, 
+    //     cuisinesInc_query, 
+    //     cuisinesEx_query,  
+    //     coursesInc_query, 
+    //     coursesEx_query, 
+    //     holidaysInc_query, 
+    //     holidaysEx_query;
 
 
-let inq_array, nin_array;
+    let inq_array, nin_array;
 
     // @TODO test if we pass 0 as id.
     if ( ingInc ) {
@@ -148,16 +148,7 @@ let inq_array, nin_array;
     console.log(nin_array2);
     // @TODO maybe we need to check if this id's are really isset in our database.
     // raven.captureException(e);
-    //var Ingredient = Recipe.app.models.Ingredient;
 
-     
-    
-   
- // IngredientModel.find({
-    //     where:{
-    //       departmentId: { inq:departmentId } 
-    //     } 
-    //   },cb);
 
 // GroceryModel.findById(groceryId)
         // .then(function(grocery){
@@ -176,7 +167,7 @@ let inq_array, nin_array;
 
    
 
-    // available relationships
+    // available relationships:
     // ingredientsList
     // attributesList
 
@@ -187,6 +178,10 @@ let inq_array, nin_array;
         //         inq: {
 
         //         } 
+
+        // inq: inq_array2,
+        // nin: nin_array2
+
         //         // ,
         //         // nin: {
                     
@@ -276,8 +271,8 @@ let inq_array, nin_array;
         }
       });
 
-
-
+    // @TODO Do we need method where we get titles, 
+    // and find them at attributes, get ids and pass this ids into where statement
 
 
 };
