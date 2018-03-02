@@ -1,6 +1,7 @@
 
 // const debug = require('debug');
 const async = require('async');
+const _     = require('underscore');
 
 // let Model
 // let database
@@ -167,13 +168,35 @@ const relate3 = async (options, results, helper) => {
 // ......
 
   //@TODO create a method with foreach for each attribute in order to attach data to recipe
-  console.log('-----');
-  console.log(results);
-  // console.log(recipes);
+  // console.log('-----');
+  // console.log(results.recipes);
+
+  console.log( _.pick(results.attributes, 'id', 'type') );
+  // @TODO so shitty way.....
+  let created_allergies = _.where(results.attributes, {type: "allergy"}), 
+      created_courses   = _.where(results.attributes, {type: "course"}), 
+      created_cuisines  = _.where(results.attributes, {type: "cuisine"}), 
+      created_diets     = _.where(results.attributes, {type: "diet"}), 
+      created_holidays  = _.where(results.attributes, {type: "holiday"});
+
+
+  console.log(created_allergies);
+console.log(created_courses);
+console.log(created_cuisines);
+console.log(created_diets);
+console.log(created_holidays);
+
+
+  
   //@TODO change that. so bad and stupid. but fast
+  let attributes_for_recipe1, 
+    attributes_for_recipe2,
+     attributes_for_recipe3,
+      attributes_for_recipe4;
 
 
 
+  // console.log( _.where(results.attributes, {type: "holiday"}) );
   // helper.attach( results[0], [ recipes[0] ], attributes[0] );
   // helper.attach( results[1], [ recipes[1] ], attributes[0] );
   // helper.attach( results[2], [ recipes[2] ], attributes[0] );

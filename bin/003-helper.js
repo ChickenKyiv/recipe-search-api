@@ -133,7 +133,7 @@ const attach = ( array_ids, collection, attribute ) => {
 
 
 
-     console.log(collection);
+     // console.log(collection);
      // debug('attach attached!'); // @TODO
 };
 
