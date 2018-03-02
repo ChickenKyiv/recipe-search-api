@@ -49,15 +49,15 @@ module.exports = function(Recipe) {
         cb 
     ) => {
 
-    console.log(ingInc);
-    console.log(ingEx);
-    console.log(allergiesInc);
-    console.log(cuisinesInc);
-    console.log(cuisinesEx);
-    console.log(coursesInc);
-    console.log(coursesEx);
-    console.log(holidaysInc);
-    console.log(holidaysEx);
+    // console.log(ingInc);
+    // console.log(ingEx);
+    // console.log(allergiesInc);
+    // console.log(cuisinesInc);
+    // console.log(cuisinesEx);
+    // console.log(coursesInc);
+    // console.log(coursesEx);
+    // console.log(holidaysInc);
+    // console.log(holidaysEx);
 
 
 
@@ -103,7 +103,7 @@ module.exports = function(Recipe) {
     //     holidaysEx_query;
 
 
-    let inq_array, nin_array;
+    let inq_array2, nin_array2;
 
     // @TODO test if we pass 0 as id.
     if ( ingInc ) {
@@ -138,12 +138,12 @@ module.exports = function(Recipe) {
         
     }
 
-    inq_array = ingInc + cuisinesInc + coursesInc + holidaysInc ;
+    // inq_array = ingInc + cuisinesInc + coursesInc + holidaysInc ;
     
     inq_array2 =  _.union(ingInc, cuisinesInc, coursesInc, holidaysInc) ;
     console.log(inq_array2);
 
-    nin_array = allergiesInc + cuisinesEx + coursesEx + holidaysEx ;
+    // nin_array = allergiesInc + cuisinesEx + coursesEx + holidaysEx ;
     nin_array2 = _.union(allergiesInc, cuisinesEx, coursesEx, holidaysEx) ;
     console.log(nin_array2);
     // @TODO maybe we need to check if this id's are really isset in our database.
@@ -172,7 +172,8 @@ module.exports = function(Recipe) {
     // attributesList
 
     Recipe.find({
-        include: 'attributesList',
+        include: 'attributesList'
+        // ,
         // where: {
         //     attributes: {
         //         inq: {
@@ -187,11 +188,11 @@ module.exports = function(Recipe) {
                     
         //         // }
         //     }
-        }
+        // }
     }, function(err, data){
 
 
-        console.log(data);
+        // console.log(data);
     })
     //@TODO save an URL that created at Swagger
 
