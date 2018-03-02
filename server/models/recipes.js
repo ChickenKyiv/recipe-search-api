@@ -43,7 +43,11 @@ module.exports = function(Recipe) {
         cuisinesInc, 
         cuisinesEx, 
         coursesInc, 
-        coursesEx, holidaysInc, holidaysEx, cb ) => {
+        coursesEx, 
+        holidaysInc, 
+        holidaysEx,
+        cb 
+    ) => {
 
     console.log(ingInc);
     console.log(ingEx);
@@ -55,43 +59,51 @@ module.exports = function(Recipe) {
     console.log(holidaysInc);
     console.log(holidaysEx);
 
-ingInc = JSON.parse("[" + ingInc + "]");
-ingEx  = JSON.parse("[" + ingEx + "]");
 
-allergiesInc = JSON.parse("[" + allergiesInc + "]");
 
-cuisinesInc  = JSON.parse("[" + cuisinesInc + "]");
-cuisinesEx   = JSON.parse("[" + cuisinesEx + "]");
 
-coursesInc   = JSON.parse("[" + coursesInc + "]");
-coursesEx    = JSON.parse("[" + coursesEx + "]");
+    ingInc = JSON.parse("[" + ingInc + "]");
+    ingEx  = JSON.parse("[" + ingEx + "]");
 
-holidaysInc  = JSON.parse("[" + holidaysInc + "]");
-holidaysEx   = JSON.parse("[" + holidaysEx + "]");
+    // it looks like we must exclude recipes with stated allergies.
+    // so AlleriesInc must be converted into Allergiex Ex
+    allergiesInc = JSON.parse("[" + allergiesInc + "]");
 
- console.log(ingInc);
-console.log(ingEx);
- console.log(allergiesInc);
-console.log(cuisinesInc);
-console.log(cuisinesEx);
-console.log(coursesInc);
-console.log(coursesEx);
-console.log(holidaysInc);
-console.log(holidaysEx);
+    cuisinesInc  = JSON.parse("[" + cuisinesInc + "]");
+    cuisinesEx   = JSON.parse("[" + cuisinesEx + "]");
 
-var whereObject = {
+    coursesInc   = JSON.parse("[" + coursesInc + "]");
+    coursesEx    = JSON.parse("[" + coursesEx + "]");
 
-};
+    holidaysInc  = JSON.parse("[" + holidaysInc + "]");
+    holidaysEx   = JSON.parse("[" + holidaysEx + "]");
 
-let ingInc_query, 
-    ingEx_query, 
-    allergiesInc_query, 
-    cuisinesInc_query, 
-    cuisinesEx_query,  
-    coursesInc_query, 
-    coursesEx_query, 
-    holidaysInc_query, 
-    holidaysEx_query;
+     console.log(ingInc);
+    console.log(ingEx);
+     console.log(allergiesInc);
+    console.log(cuisinesInc);
+    console.log(cuisinesEx);
+    console.log(coursesInc);
+    console.log(coursesEx);
+    console.log(holidaysInc);
+    console.log(holidaysEx);
+
+// var whereObject = {
+
+// };
+
+// let ingInc_query, 
+//     ingEx_query, 
+//     allergiesInc_query, 
+//     cuisinesInc_query, 
+//     cuisinesEx_query,  
+//     coursesInc_query, 
+//     coursesEx_query, 
+//     holidaysInc_query, 
+//     holidaysEx_query;
+
+
+let inq_array, nin_array;
 
     // @TODO test if we pass 0 as id.
     if ( ingInc ) {
@@ -100,21 +112,25 @@ let ingInc_query,
     if ( ingEx ) {
         
     }
+
     if ( allergiesInc ) {
         
     }
+
     if ( cuisinesInc ) {
         
     }
     if ( cuisinesEx ) {
         
     }
+
     if ( coursesInc ) {
         
     }
     if ( coursesEx ) {
         
     }
+
     if ( holidaysInc ) {
         
     }
@@ -122,19 +138,25 @@ let ingInc_query,
         
     }
 
-    var Ingredient = Recipe.app.models.Ingredient;
-     // raven.captureException(e);
-    // we assume that we're have departmentId array. maybe we need to have 1-to-1 relation
-    // departmentId: { inq:departmentId } //we assume that we're have departmentId array. maybe we need to have 1-to-1 relation
- 
+    inq_array = ingInc + cuisinesInc + coursesInc + holidaysInc ;
+    
+    inq_array2 =  _.merge(ingInc, cuisinesInc, coursesInc, holidaysInc) ;
+    console.log(inq_array2);
+
+    nin_array = allergiesInc + cuisinesEx + coursesEx + holidaysEx ;
+    nin_array2 = _.merge(allergiesInc, cuisinesEx, coursesEx, holidaysEx) ;
+    console.log(nin_array2);
+    // @TODO maybe we need to check if this id's are really isset in our database.
+    // raven.captureException(e);
+    //var Ingredient = Recipe.app.models.Ingredient;
+
+     
+    
+   
  // IngredientModel.find({
     //     where:{
-    //       deaprtmentId: { inq:departmentId } //we assume that we're have departmentId array. maybe we need to have 1-to-1 relation
-    //     },
-    //     fields: [
-    //       // 'img', 'url',
-
-    //       ]
+    //       departmentId: { inq:departmentId } 
+    //     } 
     //   },cb);
 
 // GroceryModel.findById(groceryId)
@@ -152,32 +174,44 @@ let ingInc_query,
         //  if(err){ cb(err); }
         // });
 
-    Ingredient.find({
-        // where:{
-        //   departmentId: departmentId 
-    
-        // },
-        // fields: [
-        //   // 'img', 'url',
-
-        //   ]       
-      }, cb);
+   
 
     // available relationships
     // ingredientsList
     // attributesList
+
     Recipe.find({
         include: 'attributesList',
-        where: {
-            attributes: {
-                inq: {
+        // where: {
+        //     attributes: {
+        //         inq: {
 
-                } 
-                // ,
-                // nin: 
-            }
+        //         } 
+        //         // ,
+        //         // nin: {
+                    
+        //         // }
+        //     }
         }
+    }, function(err, data){
+
+
+        console.log(data);
     })
+    //@TODO save an URL that created at Swagger
+
+    // Recipe.find({
+    //     include: 'attributesList',
+    //     where: {
+    //         attributes: {
+    //             inq: {
+
+    //             } 
+    //             // ,
+    //             // nin: 
+    //         }
+    //     }
+    // }, cb)
 
 
     };
@@ -231,11 +265,9 @@ let ingInc_query,
               required: false
             }
 
-
-        ]
-        ,
+        ],
         returns: {
-          arg: 'information',
+          arg: 'recipes',
           type: 'array'
         },
         http: {
