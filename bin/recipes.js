@@ -74,6 +74,20 @@ const get = () => {
         recipe_yield :"4",
         img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",
         url: "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208"
+      },
+      {
+        title : "Bacon Fried Rice",
+        directions: [
+          "Fry bacon until crispy. Remove from pan and drain on paper towels. Chop into bits and set aside.",
+          "Using the same pan, remove some of the bacon grease (if necessary) so you have about 3 tablespoons left in the pan. Add onion and saute until translucent. Add garlic and saute for 1 minute longer.",
+          "Add bacon rice, soy sauce, oyster sauce and black pepper. Stir-fry for 3 to 5 minutes. Taste for seasoning and adjust as necessary.",
+          "Drizzle with sesame oil, top with fried egg and scallions."
+        ],
+        prep_time    :"20min",
+        total_time   :"1h",
+        recipe_yield :"6",
+        img: "http://www.kitchengidget.com/wp-content/uploads/2015/08/Bacon-Fried-Rice-4.jpg",
+        url: "http://www.kitchengidget.com/2015/08/08/bacon-fried-rice/"
       }
      ];
 

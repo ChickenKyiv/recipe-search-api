@@ -7,15 +7,15 @@ const get = (department_id) => {
     // console.log(department_id)
     data[0] = [
       {
-        name: "potatoes",
+        name: "medium russet potatoes, sliced into sticks",
         departmentId: department_id
       },
       {
-        name: "vegetable oil",
+        name: "tablespoons vegetable oil, divided",
         departmentId: department_id
       },
       {
-        name: "black pepper",
+        name: "salt & freshly ground black pepper, to taste",
         departmentId: department_id
       },
       {
@@ -23,47 +23,43 @@ const get = (department_id) => {
         departmentId: department_id
       },
       {
-        name: "mozzarella cheese",
+        name: "ounces cheese curds or 6 ounces fresh mozzarella cheese, diced",
         departmentId: department_id
-      },
-      {
-        name: "water",
-        departmentId : department_id
       }
     ];
     // console.log(data);
     //
     data[1] = [
       {
-        name: "Pillsbury",
+        name: "1 box Pillsbury™ refrigerated pie crusts, softened as directed on box",
         departmentId: department_id
       },
       {
-        name: "apple",
+        name: "6 cups thinly sliced, peeled apples (6 medium)",
         departmentId: department_id
       },
       {
-        name: "sugar",
+        name: "3/4 cup sugar",
         departmentId: department_id
       },
       {
-        name: "flour",
+        name: "2 tablespoons all-purpose flour",
         departmentId: department_id
       },
       {
-        name: "cinnamon",
+        name: "3/4 teaspoon ground cinnamon",
         departmentId: department_id
       },
       {
-        name: "salt",
+        name: "1/4 teaspoon salt",
         departmentId: department_id
       },
       {
-        name: "nutmeg",
+        name: "1/8 teaspoon ground nutmeg",
         departmentId: department_id
       },
       {
-        name: "lemon juice",
+        name: "1 tablespoon lemon juice",
         departmentId: department_id
       },
     ];
@@ -84,11 +80,7 @@ const get = (department_id) => {
       {
         name : "grapes",
         departmentId : department_id
-      },
-      {
-        name: "potatoes",
-        departmentId: department_id
-      },
+      }
     ];
 
     data[3] = [
@@ -101,7 +93,7 @@ const get = (department_id) => {
         departmentId : department_id
       },
       {
-        name: "Italian salad dressing mix",
+        name: "dried Italian salad dressing mix",
         departmentId : department_id
       },
       {
@@ -111,58 +103,26 @@ const get = (department_id) => {
       {
         name: "water",
         departmentId : department_id
-      },
-      {
-        name : "grapes",
-        departmentId : department_id
-      },
-      {
-        name: "mozzarella cheese",
-        departmentId: department_id
-      },
-      {
-        name: "sugar",
-        departmentId: department_id
       }
     ];
 
     data[4] = [
-			{
+		{
 	  		name: "black pepper",
-        departmentId: department_id
+        	departmentId: department_id
 	  	},
 	  	{
 	      name: "extra-virgin olive oil",
 	      departmentId: department_id
 	    },
-      {
+	    {
         name: "kosher salt",
-        departmentId: department_id
-      },
-      {
+	      departmentId: department_id
+	  	},
+	  	{
         name: "kosher salt and freshly ground black",
-        departmentId: department_id
-      },
-      {
-        name: "soy sauce",
-        departmentId: department_id
-      },
-      {
-        name: "oyster sauce",
-        departmentId: department_id
-      },
-      {
-        name: "sesame oil",
-        departmentId: department_id
-      },
-      {
-        name: "large eggs",
-        departmentId: department_id
-      },
-      {
-        name: "scallions",
-        departmentId: department_id
-      }
+	      departmentId: department_id
+	  	}
 
      ];
 
