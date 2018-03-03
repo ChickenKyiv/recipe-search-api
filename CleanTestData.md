@@ -22,6 +22,22 @@ Carrots
 Celery
 ```
 
+More detailed information at https://github.com/ChickenKyiv/recipe-search-api/issues/21#issuecomment-370186139
+
+All things below are stored only in order to finish this later......
+
+
+
+
+
+
+
+
+
+
+
+
+
 this ingredients attached to different recipes
 ```
 scallions
