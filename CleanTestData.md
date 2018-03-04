@@ -47,38 +47,8 @@ beef roast
 black pepper
 ```
 
-```
-attributes by name
-Gluten-Free
-Peanut-Free
-Soy-Free
-```
 
-```
-Main Dishes
-Desserts
-```
-```
-American
-Asian
-Mexican
-```
-```
-Lacto vegetarian
-Pescetarian
-Vegan
-```
-```
-Christmas
-Thanksgiving
-Fall
-```
 
-recipes by name
-```
-Baked Chicken ...
-Perfect Apple Pie
-... Fruit Salad
-Crock Pot Roast
-```
+
+
 
