@@ -1,0 +1,171 @@
+// POST [/grocerylist/department] Departmentalize a list of strings — used for ad-hoc grocery list item addition
+
+// DELETE [/grocerylist] Delete all the items on a grocery list; faster operation than a sync with deleted items.
+
+// GET [/grocerylist] Get the user’s grocery list. User is determined by Basic Authentication.
+
+// POST [/grocerylist/recipe] Add a Recipe to the grocery list. In the request data, pass in recipeId, scale (scale=1.0 says to keep the recipe the same size as originally posted), markAsPending (true/false) to indicate that the lines in the recipe should be marked in a “pending” (unconfirmed by user) state.
+
+// POST [/grocerylist/sync] Synchronize the grocery list. Call this with a POST to /grocerylist/sync
+
+// POST [/grocerylist/item] Add a single line item to the grocery list
+
+// DELETE [/grocerylist/item/{guid}] [/grocerylist/item/{guid}] DELETE will delete this item assuming you own it.
+
+// PUT [/grocerylist/item/{guid}] Update a grocery item by GUID
+
+
+
+---------------
+RAPI Grocery lists
+
+Weekly menus - recipes - remove recipe - change servings - changes at GL
+
+Main Weekly Menu(created and stored by chief)
+Cloned to user section if user want to add some changes
+When user remove recipe, change servings, rearrange recipes order, replace recipe to another - Menu copied to user collection and weekly menu id updated from Main WM to Cloned WM
+
+
+
+
+======================
+
+Create job db architect
+
+DB девочка
+
+задачи которые введут ее в проект сделать текущую схему базы данных recipe api и GS в схематоре
+
+в этой же программе в дальнейшем она будет делать уже и расширенную красивую и доработанную схему
+
+Или же она может начать с чегото что небыло еще сделанно - таким макаром она не будет сильно привязана ни к loopback ни к текущей схеме а сможет разрабатывать отдельные вещи.
+
+====== самое важное и сложное это Measurements implementation почему - на этой логике завязано формирование гросери листа завязано сложение идентичных ингредиентов завязан перерасчет ингрединетов в рецепте, когда меняется число servings
+
+возможно внутри этой схемы должны быть и unit convertions - потому что они и будут влиять на GL & servings
+
+Improving existing db schemas working on a new parts that can be included to main project later.
+
+Servings - сейчас отсуттсвует даже такое поле. самая расширенная версия сильно зависит от Measurements
+
+Food Log можно назвать это отдельным проектом и отдельной базой очень мне нравится формат в котором был сделан проект для наса впринципе нам будет достаточно этого на первое время может использоваться как в проекте связанном с диетами, в фитнесс части так и отдельным проектом может тоже зарабатывать
+
+RAPI DB improvments сейчас база - это просто таблицы, которые связанны между собой их основная задача - просто работать и выводить даные по ключу эта база никак не оптимизированна не имеет индексов или связей many-to-many для первых релизов я посчитал что такая структура является достатоточной и решил не усложнять ее практически каждая таблица и модель этой базы данных может быть улучшена. расширеное описание я смогу предоставить позже.
+
+в rapi необхзодимо добавить сложный рцепт и подрецепты улучшить работу directions я бы хотел соединить текстовые рецепты с видосиками
+
+Automatic Grocery List : you pass array with recipe ids and get list of ingredients that was calculated.
+
+Diets DB что вообще должно в нее входить?
+
+account recipe list calendar notes calories tracker support system?
+
+Nutritions DB schemas сейчас это просто одна большая таблица, которая еще и непонятно как работает нужо наверное сделать 3 версии простая достаточная полная потому что я думаю что первой версии будет хватать для большинства проектов туда же можно добавить и калорий логгер
+
+Meal Plan calendar я решил что данную структуру необходимо вынести отдельно потому что так или иначе она встречается во многих из моих проектов базовая логика там простая Plans Weeks Days Recipes per day
+
+Departments Это категории на которые делятся ингредиенты проще говоря, это название отдела в магазине, в котором эти ингредиенты можно купить
+
+Menu Это абстрактное понятие если вы пользуетесь family meal planning service - то это список рецептов, на одну неделю. и этот лист строгий(его нельзя менять)
+
+если у вас есть фитнесс тренер или диетолог, то они могут планировать вам этот план на несколько месяцев вперед и следить за вашими результатами при этом это меню будет не строгим и вы сможете варьировать его в определенных рецептах.
+
+
+=======================================
+=======================================
+
+Grocery API only
+
+pick empty template (grocery list template)
+and add ingredients
+
+pick existing ultimate template and edit, remove items
+
+add other items (but not very a lot)
+
+default GL in db saved
+
+when we add/edit - we need to clone it(resave with different id)
+
+when we save => we can or not attaching it to user
+
+save
+	url: gl/:id
+
+
+	вывод в темлпейт информации по департаментам
+
+
+Open pre defined template
+Clone it to your profile -> thank you
+Can edit then
+
+Form: choose layouts: 1,2,3
+Create Name
+Wait for loading
+Edit your list - create open to any userlist
+
+-> create your account and save your list on
+ remove list from open state
+
+ Search on ingredients???
+ Print functionlaity
+ Grocery List page template
+
+
+ A lot of things was covered at: https://github.com/atherdon/recipe-api-only/issues/99
+
+Use other repo fork for creating first version of frontend: https://github.com/atherdon/grocery-list-app
+
+Create account functionality
+Upload or edit on web
+upload or edit on app
+
+Simple HTML template
+Do we have ability to change something?
+
+Open department list - delete department(with all ingredients)
+
+change quantity -> change ingredient name
+
+Then HTML move to clients folders
+
+Get free images to put on backgrounds
+Think about adding Ad sense block
+
+* Add recipe categories
+* Add recipe search
+* Create automative grocery list structure template.
+
+https://github.com/akhil110/Recipe-Book/blob/master/recipe-service.js
+https://www.sitepoint.com/building-recipe-search-site-angular-elasticsearch/
+http://openrecip.es
+http://codepen.io/jpokusa/pen/GBysb
+https://www.anylistapp.com
+
+add category management http://www.outofmilk.com/features.aspx
+==============================
+==============================
+
+GL
+* add ingredients
+* grocery list created from Main Menu(nothing was changed)
+* grocery list created from User Menu(grocery list not saved to db in this case)
+* if user want to add some products to GL - we create GL related to User Menu for this week
+* when user "check" ingredient(we assume he buy it) - this ingredient moved to Purchased. Purchased must have this information: qty / Date / notes/ place where it was buyed.
+
+
+
+1 Click clone Grocery List Template -> 
+2 Edit grocery list name ->
+3 View departments or indredients and make changes
+4 hide or delete unnecesary department on wizard
+
+
+What you can do with departments
+| Hide | Delete | Skip | View | Edit |
+
+
+You can open a signle Department by selecting it on select
+
+

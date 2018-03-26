@@ -12,7 +12,8 @@
     "watch": "nodemon server/server.js",
     "migrate": "node bin/002-automigrate.js",
     "import": "node bin/001-import.js",
-    "s": "npm run migrate && nodemon bin/001-import.js"
+    "s": "npm run migrate && nodemon bin/001-import.js",
+    "a": "npm run migrate && nodemon bin/005-emport.js"
   },
   "dependencies": {
     "compression": "^1.7.2",

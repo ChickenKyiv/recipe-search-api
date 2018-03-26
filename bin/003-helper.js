@@ -80,14 +80,16 @@ const create_with_relations = (options, datazzzz, wrapper, cb) => {
 
 };
 
-const create = (options, wrapper, cb) => {
+const create = (options, wrapper, cb ) => {
 
   if ( !options ){ raven.captureException('Options was not specified');  }
   if ( !cb ) {    raven.captureException('Callback was not specified'); }
   if ( !wrapper && !wrapper.table_name ) { raven.captureException('Model was not specified'); }
 
-  let server, database, raven, predata
-  ( {server, database, raven, predata} = options );
+  let server, database, raven
+  ( {server, database, raven} = options );
+// let server, database, raven, predata
+//   ( {server, database, raven, predata} = options );
 
   let Model      = server.models[wrapper.table_name];
   let table_name = wrapper.table_name;
@@ -103,11 +105,14 @@ const create = (options, wrapper, cb) => {
       return cb(err);
     }
 
-    Model.create(data, cb);
-    // Model.create(data, (err,d) => {
-    //   console.log(d)
-    // });
-    //@TODO add wrapper for debug options. cause i have to comment it every time
+    // if( debug ){
+      Model.create(data, (err,d) => {
+        console.log(d)
+      });
+     // } else {
+     //  Model.create(data, cb);  
+     // }
+
 
   });
 
