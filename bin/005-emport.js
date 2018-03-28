@@ -1,4 +1,3 @@
-
 const path    = require('path');
 const async   = require('async');
 const raven   = require('raven');
@@ -11,25 +10,18 @@ let server     = require(path.resolve(__dirname, '../server/server'));
 // @TODO update this, cause each time i need to pass a different sources.
 let database   = server.datasources.searchDS;
 
-let helper     = require(path.resolve(__dirname, '003-helper'));
+//helper. short name for fast stuff
+let h     = require(path.resolve(__dirname, '003-helper'));
 
+// include middleware
+// @todo make it auto-icludable from folder
+let Attributes = require(path.resolve(__dirname, 'attributes'));
 
-let Ingredient   = require(path.resolve(__dirname, 'ingredients'));
+// let Ingredient   = require(path.resolve(__dirname, 'ingredients'));
 // console.log(  )
 
 
 let Departments  = require(path.resolve(__dirname, 'departments'));
-
-// // @todo make it auto-icludable from folder
-// let Attribute = require(path.resolve(__dirname, 'attributes'));
-
-// //@TODO move that to attribute wrapper
-// let Allergy    = require(path.resolve(__dirname, 'allergy'));
-// let Course     = require(path.resolve(__dirname, 'courses'));
-// let Cuisine    = require(path.resolve(__dirname, 'cuisines'));
-// let Diet       = require(path.resolve(__dirname, 'diets'));
-// let Holiday    = require(path.resolve(__dirname, 'holidays'));
-
 
 
 
@@ -46,19 +38,37 @@ let Departments  = require(path.resolve(__dirname, 'departments'));
 
 // });
 
-// _.union(
-// 		Allergy.get(),
-// 		Course.get(),
-// 		Cuisine.get(),
-// 		Diet.get(),
-// 		Holiday.get(),
-// 		// Nutritions.get()
-// 	)
-	let options = {
-		server: server,
-		database: database,
-		raven: raven
-	}
+
+let options = {
+	server: server,
+	database: database
+	// raven: raven
+}
+
+
+async.parallel({
+	departments : async.apply(h.create, options, Departments),
+	attributes  : async.apply(h.create, options, Attributes)
+
+
+}, function(err, results){
+
+	h.is_imported(results, ['departments', 'attributes']);
+
+	// console.log(results.departments)
+
+	const department_ids = h.da_id( results.departments );
+
+
+});
+
+
+
+
+
+
+
+
 
 // const create_ingredients = async() => {
 // 	let departo = await helper.create(options, Departments, true);
@@ -67,13 +77,15 @@ let Departments  = require(path.resolve(__dirname, 'departments'));
 // 	return 'pidor';
 // };
 
-const create_departments = async(options) => {
-	// console.log(options)
-	return await helper.create(options, Departments);
+// const create_departments = async() => {
+// 	// console.log(options)
+// 	let data = await helper.create(options, Departments);
 
-	// console.log(departo);
-	// return 'pidor2';
-};
+// 	console.log(data);
+// 	// console.log(_.pluck(data, 'id'));
+// 	return _.pluck(data, 'id');
+// };
+
 
 // const create_recipes = async() => {
 
@@ -101,21 +113,38 @@ const create_departments = async(options) => {
 
 // 	//@TODO add try catch later, why not???
 // };
-options => async
-async () run_this_import_please = async(options) => {
+// options => async
+// const run_this_import_please = async() => {
+
+// 	try {
+// 		await create_departments()
+		
+// 			.then( 
+// 				result => console.log(result) 
+// 			);
+// 	//     await oracledb.createPool(dbConfig);
+// 	//     let emp = await employees.getEmployee(101);
+// 	//     console.log(emp);
+// 	} catch (err) {
+
+// 		raven.captureException(err);
+// 	}
+
+// 	// console.log(options)
+// 	// await departments().then( ingredients() )
+// 	// console.log('13')
+// 	// await create_departments(options)
+// 	// 	.then( 
+// 	// 		result => console.log(result) 
+// 	// 	);
+// 	// await attributes()
+// 	// await recipes().then( attach attributes && attach ingredients )
+
+// }; 
 
 
-	// await departments().then( ingredients() )
-	// console.log('13')
-	await create_departments(options).then( result => console.log(result) )
-	// await attributes()
-	// await recipes().then( attach attributes && attach ingredients )
 
-}; 
-
-
-
-run_this_import_please(options)
+// run_this_import_please();
 
 // async function startApp() {
 //   try {

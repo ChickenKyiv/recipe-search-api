@@ -39,14 +39,7 @@ let options = {
 	database: database,
 	raven: raven,
 
-  predata: _.union(
-		Allergy.get(),
-		Course.get(),
-		Cuisine.get(),
-		Diet.get(),
-		Holiday.get(),
-		// Nutritions.get()
-	)
+ 
 }
 
 //@TODO think about separating predata and options array

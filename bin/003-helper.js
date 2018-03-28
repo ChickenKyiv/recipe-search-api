@@ -1,11 +1,14 @@
 const _       = require('underscore');
 const async = require('async');
+const raven = require('raven');
 
 // @TODO move id to config file. or we use it in a lot of places.
-// Raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
-let raven
+raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
 
-const get_id_array = (array) => {
+// let raven
+
+const da_id = (array) => {
+  // console.log(array)
   if ( !array ){
     raven.captureException('Cannot attach an empty array of ids');
   }
@@ -23,11 +26,6 @@ const get_id_array = (array) => {
 // model is a model name, that we use fo passing data
 // @TODO and checking is model exist and create a variables from array by easiest way. i saw similar sutff at jQuery libraries.
 
-// const vaza = () => {
-
-
-
-// };
 
 // const create_ingredients = (options, wrapper, cb) => {
 //   if( !options ){ raven.captureException('Options was not specified');  }
@@ -83,11 +81,15 @@ const create_with_relations = (options, datazzzz, wrapper, cb) => {
 const create = (options, wrapper, cb ) => {
 
   if ( !options ){ raven.captureException('Options was not specified');  }
-  if ( !cb ) {    raven.captureException('Callback was not specified'); }
+  if ( !cb )     { raven.captureException('Callback was not specified'); }
+
   if ( !wrapper && !wrapper.table_name ) { raven.captureException('Model was not specified'); }
 
-  let server, database, raven
-  ( {server, database, raven} = options );
+   // console.log(options.raven)
+
+  let server, database 
+  ( {server, database} = options );
+
 // let server, database, raven, predata
 //   ( {server, database, raven, predata} = options );
 
@@ -95,9 +97,14 @@ const create = (options, wrapper, cb ) => {
   let table_name = wrapper.table_name;
 
 
-  let data       = ( !predata )
-                      ? wrapper.get()
-                      : wrapper.get(predata) ;
+  let data       = 
+  // ( !predata )
+                      // ? 
+                      wrapper.get()
+                      // : wrapper.get(predata) ;
+
+console.log(data);
+
 
   database.autoupdate(table_name, function(err){
     if (err) {
@@ -106,12 +113,13 @@ const create = (options, wrapper, cb ) => {
     }
 
     // if( debug ){
-      Model.create(data, (err,d) => {
-        console.log(d)
-      });
+      // Model.create(data, (err,d) => {
+      //   console.log(d)
+      // });
      // } else {
-     //  Model.create(data, cb);  
+      Model.create(data, cb);  
      // }
+    //@TODO add wrapper for debug options. cause i have to comment it every time
 
 
   });
@@ -206,10 +214,21 @@ const find_all_data_copy_of_function_above = async (options, cb) => {
 
 };
 
+const is_imported = (results, tables) => {
+
+  _.map(tables, (item) => { 
+    if( !results.item ) 
+      raven.captureException("not imported well");  
+  });
+
+}
+
 module.exports = {
-  get_id_array : get_id_array,
+  da_id    : da_id,
   create   : create,
   attach   : attach,
   get_data : get_imported_data_for_relate_function,
-  create_with_relations: create_with_relations
+  create_with_relations: create_with_relations,
+  is_imported: is_imported
+
 };

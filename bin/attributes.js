@@ -1,21 +1,17 @@
-let table_name = 'Attribute'
-
-// right now this method is created only for back capability with helper script
-const get = (data) => {
-
-  	return data;
-};
-
 const path    = require('path');
+const _    = require('underscore');
 
 let Allergy    = require(path.resolve(__dirname, 'allergy'));
 let Course     = require(path.resolve(__dirname, 'courses'));
 let Cuisine    = require(path.resolve(__dirname, 'cuisines'));
 let Diet       = require(path.resolve(__dirname, 'diets'));
 let Holiday    = require(path.resolve(__dirname, 'holidays'));
+
 // let Nutritions = require(path.resolve(__dirname, 'nutritions'));
 
-const get2 = () => {
+let table_name = 'Attribute'
+
+const get = () => {
 
   	return _.union(
 			Allergy.get(),
@@ -31,4 +27,4 @@ const get2 = () => {
 module.exports.get        = get;
 module.exports.table_name = table_name;
 
-module.exports.get2        = get2;
+// module.exports.get2        = get2;
