@@ -1,5 +1,5 @@
 const path    = require('path');
-const _    = require('underscore');
+const _       = require('underscore');
 
 let Allergy    = require(path.resolve(__dirname, 'allergy'));
 let Course     = require(path.resolve(__dirname, 'courses'));
@@ -13,18 +13,17 @@ let table_name = 'Attribute'
 
 const get = () => {
 
-  	return _.union(
-			Allergy.get(),
-			Course.get(),
-			Cuisine.get(),
-			Diet.get(),
-			Holiday.get(),
-			// Nutritions.get()
+  	return 
+  	_.union(
+		Allergy.get(),
+		Course.get(),
+		Cuisine.get(),
+		Diet.get(),
+		Holiday.get(),
+		// Nutritions.get()
 	);
 };
 
 
 module.exports.get        = get;
 module.exports.table_name = table_name;
-
-// module.exports.get2        = get2;

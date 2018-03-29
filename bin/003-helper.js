@@ -45,10 +45,10 @@ const da_id = (array) => {
 // };
 
 //@TODO it's a stupid duplicate. as usually - want to speed up development
-const create_with_relations = (options, datazzzz, wrapper, cb) => {
+const create_with_relations = ( options, datazzzz, wrapper, cb ) => {
 
   if ( !options ){ raven.captureException('Options was not specified');  }
-  if ( !cb ) {    raven.captureException('Callback was not specified'); }
+  if ( !cb )     { raven.captureException('Callback was not specified'); }
   if ( !wrapper && !wrapper.table_name ) { raven.captureException('Model was not specified'); }
 
   let server, database, raven, predata
@@ -78,6 +78,7 @@ const create_with_relations = (options, datazzzz, wrapper, cb) => {
 
 };
 
+
 const create = (options, wrapper, cb ) => {
 
   if ( !options ){ raven.captureException('Options was not specified');  }
@@ -90,8 +91,8 @@ const create = (options, wrapper, cb ) => {
   let server, database 
   ( {server, database} = options );
 
-// let server, database, raven, predata
-//   ( {server, database, raven, predata} = options );
+  // let server, database, raven, predata
+  //   ( {server, database, raven, predata} = options );
 
   let Model      = server.models[wrapper.table_name];
   let table_name = wrapper.table_name;
@@ -103,7 +104,7 @@ const create = (options, wrapper, cb ) => {
                       wrapper.get()
                       // : wrapper.get(predata) ;
 
-console.log(data);
+// console.log(data);
 
 
   database.autoupdate(table_name, function(err){
@@ -226,6 +227,7 @@ const is_imported = (results, tables) => {
 module.exports = {
   da_id    : da_id,
   create   : create,
+  // cReate:cReate,
   attach   : attach,
   get_data : get_imported_data_for_relate_function,
   create_with_relations: create_with_relations,
