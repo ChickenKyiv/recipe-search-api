@@ -54,11 +54,22 @@ let Departments  = require(path.resolve(__dirname, 'departments'));
 // 		Holiday.get(),
 // 		// Nutritions.get()
 // 	)
+
 	let options = {
 		server: server,
-		database: database,
-		raven: raven
+		database: database
+		// raven: raven
 	}
+
+
+
+
+
+
+
+
+
+
 
 // const create_ingredients = async() => {
 // 	let departo = await helper.create(options, Departments, true);
@@ -69,10 +80,11 @@ let Departments  = require(path.resolve(__dirname, 'departments'));
 
 const create_departments = async(options) => {
 	// console.log(options)
-	return await helper.create(options, Departments);
+	let data = await helper.create(options, Departments);
 
-	// console.log(departo);
-	// return 'pidor2';
+	console.log(data);
+	// console.log(_.pluck(data, 'id'));
+	return _.pluck(data, 'id');
 };
 
 // const create_recipes = async() => {
@@ -101,13 +113,16 @@ const create_departments = async(options) => {
 
 // 	//@TODO add try catch later, why not???
 // };
-options => async
-async () run_this_import_please = async(options) => {
+// options => async
+const run_this_import_please = async() => {
 
-
+	// console.log(options)
 	// await departments().then( ingredients() )
 	// console.log('13')
-	await create_departments(options).then( result => console.log(result) )
+	await create_departments(options)
+		.then( 
+			result => console.log(result) 
+		);
 	// await attributes()
 	// await recipes().then( attach attributes && attach ingredients )
 
@@ -115,7 +130,7 @@ async () run_this_import_please = async(options) => {
 
 
 
-run_this_import_please(options)
+run_this_import_please()
 
 // async function startApp() {
 //   try {

@@ -1,9 +1,11 @@
 const _       = require('underscore');
 const async = require('async');
+const raven = require('raven');
 
 // @TODO move id to config file. or we use it in a lot of places.
-// Raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
-let raven
+raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
+
+// let raven
 
 const get_id_array = (array) => {
   if ( !array ){
@@ -23,11 +25,6 @@ const get_id_array = (array) => {
 // model is a model name, that we use fo passing data
 // @TODO and checking is model exist and create a variables from array by easiest way. i saw similar sutff at jQuery libraries.
 
-// const vaza = () => {
-
-
-
-// };
 
 // const create_ingredients = (options, wrapper, cb) => {
 //   if( !options ){ raven.captureException('Options was not specified');  }
@@ -80,14 +77,17 @@ const create_with_relations = (options, datazzzz, wrapper, cb) => {
 
 };
 
-const create = (options, wrapper, cb ) => {
+const create = async (options, wrapper, cb ) => {
 
   if ( !options ){ raven.captureException('Options was not specified');  }
   if ( !cb ) {    raven.captureException('Callback was not specified'); }
+
   if ( !wrapper && !wrapper.table_name ) { raven.captureException('Model was not specified'); }
 
-  let server, database, raven
-  ( {server, database, raven} = options );
+   console.log(options.raven)
+
+  let server, database 
+  ( {server, database} = options );
 // let server, database, raven, predata
 //   ( {server, database, raven, predata} = options );
 
@@ -95,9 +95,14 @@ const create = (options, wrapper, cb ) => {
   let table_name = wrapper.table_name;
 
 
-  let data       = ( !predata )
-                      ? wrapper.get()
-                      : wrapper.get(predata) ;
+  let data       = 
+  // ( !predata )
+                      // ? 
+                      wrapper.get()
+                      // : wrapper.get(predata) ;
+
+
+
 
   database.autoupdate(table_name, function(err){
     if (err) {
@@ -106,12 +111,13 @@ const create = (options, wrapper, cb ) => {
     }
 
     // if( debug ){
-      Model.create(data, (err,d) => {
-        console.log(d)
-      });
+      // Model.create(data, (err,d) => {
+      //   console.log(d)
+      // });
      // } else {
-     //  Model.create(data, cb);  
+      Model.create(data, cb);  
      // }
+    //@TODO add wrapper for debug options. cause i have to comment it every time
 
 
   });
