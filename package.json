@@ -23,7 +23,7 @@
     "loopback-boot": "^2.27.0",
     "loopback-component-explorer": "^6.0.1",
     "loopback-connector-mongodb": "^3.4.3",
-    "raven": "^2.4.1",
+    "raven": "^2.6.2",
     "serve-favicon": "^2.4.5",
     "strong-error-handler": "^2.3.2",
     "underscore": "^1.8.3"
