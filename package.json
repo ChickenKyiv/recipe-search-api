@@ -19,7 +19,7 @@
     "compression": "^1.7.2",
     "cors": "^2.5.2",
     "jest": "^23.1.0",
-    "loopback": "^3.19.2",
+    "loopback": "^3.19.3",
     "loopback-boot": "^2.27.1",
     "loopback-component-explorer": "^6.0.1",
     "loopback-connector-mongodb": "^3.4.3",
