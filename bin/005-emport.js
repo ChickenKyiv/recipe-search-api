@@ -39,9 +39,9 @@ async.parallel({
 }, function(err, results){
 
 	h.is_imported(results, [
-		'departments', 
-		'attributes', 
-		// 'recipes'
+		'departments',
+		'attributes',
+		'recipes'
 		]);
 
 	// console.log(results.departments)
@@ -52,9 +52,11 @@ async.parallel({
 
 	var department_id = department_ids[0];
 
+	let ingredients = await h.cReate(options, Ingredients);
+
 	var ingredients = Ingredient.get(department_id)
 
-	h.create_with_relations(options, ingredients, Ingredient, 
+	h.create_with_relations(options, ingredients, Ingredient,
 		( err, data ) => {
 
 		// console.log(data);
@@ -126,9 +128,9 @@ async.parallel({
 
 // 	try {
 // 		await create_departments()
-		
-// 			.then( 
-// 				result => console.log(result) 
+
+// 			.then(
+// 				result => console.log(result)
 // 			);
 // 	//     await oracledb.createPool(dbConfig);
 // 	//     let emp = await employees.getEmployee(101);
@@ -142,13 +144,13 @@ async.parallel({
 // 	// await departments().then( ingredients() )
 // 	// console.log('13')
 // 	// await create_departments(options)
-// 	// 	.then( 
-// 	// 		result => console.log(result) 
+// 	// 	.then(
+// 	// 		result => console.log(result)
 // 	// 	);
 // 	// await attributes()
 // 	// await recipes().then( attach attributes && attach ingredients )
 
-// }; 
+// };
 
 
 

@@ -6,7 +6,7 @@ const raven = require('raven');
 raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
 
 // let raven
-
+//@TODO change this name
 const da_id = (array) => {
   // console.log(array)
   if ( !array ){
@@ -45,10 +45,10 @@ const da_id = (array) => {
 // };
 
 //@TODO it's a stupid duplicate. as usually - want to speed up development
-const create_with_relations = ( options, datazzzz, wrapper, cb ) => {
+const create_with_relations = (options, datazzzz, wrapper, cb) => {
 
   if ( !options ){ raven.captureException('Options was not specified');  }
-  if ( !cb )     { raven.captureException('Callback was not specified'); }
+  if ( !cb ) {    raven.captureException('Callback was not specified'); }
   if ( !wrapper && !wrapper.table_name ) { raven.captureException('Model was not specified'); }
 
   let server, database, raven, predata
@@ -57,7 +57,7 @@ const create_with_relations = ( options, datazzzz, wrapper, cb ) => {
   let Model      = server.models[wrapper.table_name];
   let table_name = wrapper.table_name;
 
-
+//@TODO change this name.
   let data       = datazzzz ;
 
   database.autoupdate(table_name, function(err){
@@ -88,23 +88,23 @@ const create = (options, wrapper, cb ) => {
 
    // console.log(options.raven)
 
-  let server, database 
+  let server, database
   ( {server, database} = options );
 
-  // let server, database, raven, predata
-  //   ( {server, database, raven, predata} = options );
+// let server, database, raven, predata
+//   ( {server, database, raven, predata} = options );
 
   let Model      = server.models[wrapper.table_name];
   let table_name = wrapper.table_name;
 
-
-  let data       = 
+// @TODO change this make it work backwards.
+  let data       =
   // ( !predata )
-                      // ? 
+                      // ?
                       wrapper.get()
                       // : wrapper.get(predata) ;
 
-// console.log(data);
+console.log(data);
 
 
   database.autoupdate(table_name, function(err){
@@ -118,7 +118,7 @@ const create = (options, wrapper, cb ) => {
       //   console.log(d)
       // });
      // } else {
-      Model.create(data, cb);  
+      Model.create(data, cb);
      // }
     //@TODO add wrapper for debug options. cause i have to comment it every time
 
@@ -217,9 +217,9 @@ const find_all_data_copy_of_function_above = async (options, cb) => {
 
 const is_imported = (results, tables) => {
 
-  _.map(tables, (item) => { 
-    if( !results.item ) 
-      raven.captureException("not imported well");  
+  _.map(tables, (item) => {
+    if( !results.item )
+      raven.captureException("not imported well");
   });
 
 }
@@ -227,7 +227,7 @@ const is_imported = (results, tables) => {
 module.exports = {
   da_id    : da_id,
   create   : create,
-  // cReate:cReate,
+  cReate:cReate,
   attach   : attach,
   get_data : get_imported_data_for_relate_function,
   create_with_relations: create_with_relations,
