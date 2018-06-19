@@ -1,9 +1,5 @@
 'use strict';
-
-const raven   = require('raven');
 const _       = require('underscore');
-
-raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
 
 
 module.exports = function(Recipe) {
@@ -147,7 +143,6 @@ module.exports = function(Recipe) {
     nin_array2 = _.without( _.union(allergiesInc, cuisinesEx, coursesEx, holidaysEx), 0 ) ;
     console.log(nin_array2);
     // @TODO maybe we need to check if this id's are really isset in our database.
-    // raven.captureException(e);
 
 
 // GroceryModel.findById(groceryId)
