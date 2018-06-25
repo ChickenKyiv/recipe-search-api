@@ -71,7 +71,7 @@ Attributes that have one or more results
 
 Allergy:
 Soy Free
-Dairy free
+
 Egg-free
 Gluten-Free
 
@@ -80,7 +80,7 @@ Main dishes
 Desserts
 Salads
 Breakfast
-Breads
+
 
 Cuisines
 Kid-Friendly
@@ -91,6 +91,7 @@ German
 Diets:
 Paleo
 Pescetarian
+vegan
 
 Holidays:
 Christmass
@@ -98,3 +99,60 @@ Fall
 new Year
 Winter
 Halloween
+
+
+ingredients
+Black Pepper
+apple
+sugar
+water
+mozarella cheese
+Potatoes
+scallions
+
+
+
+case x:
+Winter
+French
+
+will should return
+'backed chicken chimichangas'
+'Bacon Fried Rice'
+'Crook Pot Roast'
+
+
+
+case x:
+
+Black pepper
+scallions
+
+Winter
+
+Main dishes
+Breakfast
+
+French
+
+will should return
+'Bacon fried rice'
+'backed chicken Chimichangas'
+
+case x:
+
+Apple
+
+Fall
+
+Kid-friendly
+English
+
+Breakfast
+
+Gluten Free
+
+Vegan
+
+'Basic Fruit salad'
+'Perfect Apple Pie'
