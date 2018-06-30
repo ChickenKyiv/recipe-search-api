@@ -72,36 +72,6 @@ http://localhost:3000/api/holiday?filter[where][id][inq]=holidayId&filter[where]
 http://localhost:3000/api/holiday?filter[where][id][inq]=holidayId&filter[where][id][nin]=holidayId  
 
 
-#### Allergies search
-
-| First Header  | Second Header | Status |
-| ------------- | ------------- |------------- |
-| Method  | GET  |
-| Pathl  | l  |
-| Pathl  | l  |
-| Pathl  | http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%token%  |
-Method: GET
-Path: /api/allergy?filter[where][id]=allergyId
-Input: JSON with properties ...
-http://localhost:3000/api/allergy?filter[where][id]=allergyId  
-http://localhost:3000/api/allergy?filter[where][id][inq]=allergyId&filter[where][id][inq]=allergyId  
-http://localhost:3000/api/allergy?filter[where][id][inq]=allergyId&filter[where][id][nin]=allergyId  
-
-
-#### Diets search
-| First Header  | Second Header | Status |
-| ------------- | ------------- |------------- |
-| Method  | GET  |
-| Pathl  | l  |
-| Pathl  | l  |
-| Pathl  | http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%token%  |
-Method: GET
-Path: /api/diet?filter[where][id]=dietId
-Input: JSON with properties ...
-http://localhost:3000/api/diet?filter[where][id]=dietId  **working**  
-http://localhost:3000/api/diet?filter[where][id][inq]=dietId&filter[where][id][inq]=dietId    **working**  
-http://localhost:3000/api/diet?filter[where][id][inq]=dietId&filter[where][id][nin]=dietId  
-
 
 
 #### Cooking Time (lt XX:XX) Less than
@@ -247,27 +217,7 @@ https://recipe-api-loopback.herokuapp.com/api/holiday?filter[where][id]=holidayI
 https://recipe-api-loopback.herokuapp.com/api/holiday?filter[where][id][inq]=holidayId&filter[where][id][inq]=holidayId  **working **  
 https://recipe-api-loopback.herokuapp.com/api/holiday?filter[where][id][inq]=holidayId&filter[where][id][nin]=holidayId  
 
-**Allergies search **
-| First Header  | Second Header | Status |
-| ------------- | ------------- |------------- |
-| Method  | GET  |
-| Pathl  | l  |
-| Pathl  | l  |
-| Pathl  | http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%token%  |
-https://recipe-api-loopback.herokuapp.com/api/allergy?filter[where][id]=allergyId  
-https://recipe-api-loopback.herokuapp.com/api/allergy?filter[where][id][inq]=allergyId&filter[where][id][inq]=allergyId  
-https://recipe-api-loopback.herokuapp.com/api/allergy?filter[where][id][inq]=allergyId&filter[where][id][nin]=allergyId  
 
-**Diets search **
-| First Header  | Second Header | Status |
-| ------------- | ------------- |------------- |
-| Method  | GET  |
-| Pathl  | l  |
-| Pathl  | l  |
-| Pathl  | http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%token%  |
-https://recipe-api-loopback.herokuapp.com/api/diet?filter[where][id]=dietId  **working **  
-https://recipe-api-loopback.herokuapp.com/api/diet?filter[where][id][inq]=dietId&filter[where][id][inq]=dietId    **working **  
-https://recipe-api-loopback.herokuapp.com/api/diet?filter[where][id][inq]=dietId&filter[where][id][nin]=dietId  
 
 **Cooking Time ** lt XX:XX
 | First Header  | Second Header | Status |
@@ -328,73 +278,3 @@ https://recipe-api-loopback.herokuapp.com/api/recipe?filter[where][and][0][aller
 https://recipe-api-loopback.herokuapp.com/api/recipe?filter[where][and][0][allergies][inq]=allergyId&filter[where][and][1][allergies][inq]=allergyId&filter[where][and][2][courses][inq]=courseId&filter[where][and][2][courses][inq]=courseId **working **  
 
 https://recipe-api-loopback.herokuapp.com/api/recipe?filter[where][and][0][holidays][inq]=holidayId&filter[where][and][1][holidays][inq]=holidayId&filter[where][and][2][diets][inq]=dietId&filter[where][and][2][diets][inq]=dietId **working**  
-
-
-What data can be used for search from imported script
-We have x recipes
-We have x allergies
-We have x courses
-We have x cuisines
-We have x diets
-We have x holidays
-We have x nutritions
-We have x menus
-We have x nutritions  
-We have x ingredients attached to recipes
-We have x ingredients attached to departments and grocery
-
-## How to test
-
-###### Simple queries
-ingredients by name
-this ingredients was not attached to recipes. But still have data stored.
-```
-Asparagus
-Carrots
-Celery
-```
-
-this ingredients attached to different recipes
-```
-scallions
-apple
-banana
-beef roast
-black pepper
-```
-
-```
-attributes by name
-Gluten-Free
-Peanut-Free
-Soy-Free
-```
-
-```
-Main Dishes
-Desserts
-```
-```
-American
-Asian
-Mexican
-```
-```
-Lacto vegetarian
-Pescetarian
-Vegan
-```
-```
-Christmas
-Thanksgiving
-Fall
-```
-
-recipes by name
-```
-Baked Chicken ...
-Perfect Apple Pie
-... Fruit Salad
-Crock Pot Roast
-```
-
