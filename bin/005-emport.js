@@ -26,7 +26,7 @@ let Recipe      = require(path.resolve(__dirname, 'recipes'));
 let options = {
 	server: server,
 	database: database
-}
+};
 
 
 async.parallel({
