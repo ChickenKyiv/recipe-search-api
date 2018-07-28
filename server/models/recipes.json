@@ -51,12 +51,85 @@
       "type": "referencesMany",
       "model": "Ingredient",
       "foreignKey": "ingredients"
+    },
+    "courses": {
+      "type": "hasMany",
+      "model": "Attribute",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "cuisines": {
+      "type": "hasMany",
+      "model": "Attribute",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "holidays": {
+      "type": "hasMany",
+      "model": "Attribute",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "flavors": {
+      "type": "hasMany",
+      "model": "Attribute",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "salty": {
+      "type": "hasOne",
+      "model": "number",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "sour": {
+      "type": "hasOne",
+      "model": "number",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "sweet": {
+      "type": "hasOne",
+      "model": "number",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "bitter": {
+      "type": "hasOne",
+      "model": "number",
+      "foreignKey": ""
+    },
+    "meaty": {
+      "type": "hasOne",
+      "model": "number",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "piquant": {
+      "type": "hasOne",
+      "model": "number",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
     }
-
-
   },
-  "acls": [
-
-  ],
+  "acls": [],
   "methods": {}
 }

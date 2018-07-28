@@ -39,8 +39,8 @@ let options = {
 	database: database,
 	raven: raven,
 
- 
-}
+
+};
 
 //@TODO think about separating predata and options array
 async.parallel({
@@ -59,7 +59,7 @@ async.parallel({
 		if( !results
 			|| !results.recipes || !results.attributes
 			|| !results.departments
-			
+
 		) {
 				raven.captureException("not imported well");
 		}
