@@ -227,7 +227,7 @@ const is_imported = (results, tables) => {
 module.exports = {
   da_id    : da_id,
   create   : create,
-  cReate:cReate,
+  // cReate:cReate,
   attach   : attach,
   get_data : get_imported_data_for_relate_function,
   create_with_relations: create_with_relations,
