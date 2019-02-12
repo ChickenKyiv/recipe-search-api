@@ -16,7 +16,7 @@
     "a": "npm run migrate && nodemon bin/005-emport.js"
   },
   "dependencies": {
-    "@groceristar/groceristar-fetch": "^1.1.16",
+    "@groceristar/groceristar-fetch": "^1.1.61",
     "compression": "^1.7.3",
     "cors": "^2.8.4",
     "jest": "^23.4.2",
